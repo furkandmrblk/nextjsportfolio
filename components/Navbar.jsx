@@ -5,11 +5,21 @@ import Link from 'next/link';
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const openMenu = () => {
+    setOpen(!open);
+
+    if (open === true) {
+      document.body.style.overflow = 'visible';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
   return (
-    <HeaderContainer open={open}>
-      <Nav>
+    <HeaderContainer>
+      <Nav open={open} id="home">
         <Logo href="/">furkan</Logo>
-        <HamburgerWrap onClick={() => setOpen(!open)}>
+        <HamburgerWrap onClick={openMenu}>
           <MenuLink>menu</MenuLink>
           <HamburgerLineWrap>
             <MenuLinkLine />
@@ -21,15 +31,24 @@ export default function Navbar() {
         <MenuBG open={open} />
         <MenuSideWrapper>
           <MenuSideNumber>00</MenuSideNumber>
-          <MenuItems data-text="About"> About</MenuItems>
+          <MenuItems href="/about" data-text="About">
+            {' '}
+            About
+          </MenuItems>
         </MenuSideWrapper>
         <MenuSideWrapper>
           <MenuSideNumber>01</MenuSideNumber>
-          <MenuItems data-text="Projects"> Projects</MenuItems>
+          <MenuItems onClick={openMenu} href="/#projects" data-text="Projects">
+            {' '}
+            Projects
+          </MenuItems>
         </MenuSideWrapper>
         <MenuSideWrapper>
           <MenuSideNumber>02</MenuSideNumber>
-          <MenuItems data-text="Contact"> Contact</MenuItems>
+          <MenuItems onClick={openMenu} href="/#contact" data-text="Contact">
+            {' '}
+            Contact
+          </MenuItems>
         </MenuSideWrapper>
       </Menu>
     </HeaderContainer>
@@ -42,6 +61,7 @@ const HeaderContainer = styled.div`
   z-index: 1000;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 `;
 
 const Nav = styled.div`
@@ -52,6 +72,8 @@ const Nav = styled.div`
   grid-template-columns: 33.3% 33.4% 33%;
   grid-template-areas: '. logo menu';
   width: 100%;
+
+  background-color: ${({ open }) => (open ? ' #14141c' : 'transparent')};
 `;
 
 const Logo = styled.a`
@@ -60,7 +82,7 @@ const Logo = styled.a`
   font-size: 2.5rem;
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 0.5px #fff;
+  -webkit-text-stroke: 0.3px #fff;
 
   justify-self: center;
   align-self: center;
@@ -144,26 +166,31 @@ const HamburgerWrap = styled.a`
 `;
 
 const Menu = styled.div`
+  z-index: 1000;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  position: fixed;
+
   overflow: hidden;
 
+  height: 100%;
+
   width: ${({ open }) => (open ? '100vw' : '0')};
+
   transition: all 1s ease-in-out;
 `;
 
 const MenuBG = styled.div`
   position: absolute;
-  display: block;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
+  height: 100%;
 
   min-width: ${({ open }) => (open ? '100vw' : '0')};
-  background: #0d0d0d;
+  background: #14141c;
 
   transition: all 1s ease-in-out;
   z-index: 1000;
@@ -172,7 +199,7 @@ const MenuBG = styled.div`
 const MenuItems = styled.a`
   position: relative;
   display: inline-flex;
-  font-size: 12rem;
+  font-size: 10rem;
   font-weight: 900;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.5px #ececec;

@@ -14,9 +14,11 @@ const GlobalStyle = createGlobalStyle`
     
     body {
     padding: 0;
-     color: #fff;
-     background: #0d0d0d;
+     color: #ececec;
+     background: #14141c;
      font-family: 'Poppins', sans-serif;
+    overflow-x:hidden;
+    
 
      h1,h2,h3,h4,h5 {
          margin: 0;

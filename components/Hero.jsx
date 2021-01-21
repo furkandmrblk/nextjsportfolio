@@ -1,31 +1,109 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { TweenMax, Power3, Power2 } from 'gsap';
 
 export default function Hero() {
+  let heroText = useRef(null);
+  let heroButton = useRef(null);
+
+  let circlePurple = useRef(null);
+  let circleWhite = useRef(null);
+  let circleGreen = useRef(null);
+
+  let heroSubtitle = useRef(null);
+  let heroSubtitle2 = useRef(null);
+  let heroSubtitle3 = useRef(null);
+  let heroSubtitle4 = useRef(null);
+
+  useEffect(() => {
+    TweenMax.from(circlePurple, 1, {
+      opacity: 0,
+      x: -350,
+      ease: Power3.easeOut,
+    });
+    TweenMax.from(circleWhite, 1.2, {
+      opacity: 0.5,
+      x: -380,
+      ease: Power3.easeOut,
+    });
+    TweenMax.from(circleGreen, 1.4, {
+      opacity: 0.9,
+      x: -410,
+      ease: Power3.easeOut,
+    });
+    TweenMax.staggerFrom([heroSubtitle, heroSubtitle2], 1.5, {
+      opacity: 0,
+      x: -700,
+      ease: Power3.easeOut,
+    });
+    TweenMax.staggerFrom([heroSubtitle3, heroSubtitle4], 1.5, {
+      opacity: 0,
+      x: 700,
+      ease: Power3.easeOut,
+    });
+    TweenMax.to([heroText, heroButton], 1.15, {
+      opacity: 1,
+      y: 40,
+      ease: Power2.easeOut,
+    });
+  }, []);
+
   return (
     <>
       <HeroWrapper>
         <SphereWrapper>
-          <Sphere style={{ backgroundColor: '#5B56F4' }} />
-          <Sphere style={{ backgroundColor: '#fff', marginTop: '7rem' }} />
-          <Sphere style={{ backgroundColor: '#2C9487', marginTop: '14rem' }} />
+          <Sphere
+            ref={(el) => (circlePurple = el)}
+            style={{ backgroundColor: '#5B56F4' }}
+          />
+          <Sphere
+            ref={(el) => (circleWhite = el)}
+            style={{ backgroundColor: '#fff', marginTop: '7rem' }}
+          />
+          <Sphere
+            ref={(el) => (circleGreen = el)}
+            style={{ backgroundColor: '#2C9487', marginTop: '14rem' }}
+          />
         </SphereWrapper>
         <HeroTextWrapper>
-          <HeroText>
+          <HeroText ref={(el) => (heroText = el)}>
             A web developer that will{' '}
             <span style={{ fontWeight: '600' }}>grow your brand</span> & get you
             <span style={{ fontWeight: '600' }}> results</span>.
           </HeroText>
-          <HeroButton>Contact Me</HeroButton>
+          <HeroButton
+            ref={(el) => (heroButton = el)}
+            type="submit"
+            value="Send Email"
+            href="mailto:ibrahimdmrblk@outlook.de"
+          >
+            Contact Me
+          </HeroButton>
         </HeroTextWrapper>
       </HeroWrapper>
       <SubHeroWrapper>
-        <SubHeroLine1 data-text="<> Unique.">{'<>'} Unique. </SubHeroLine1>
-        <SubHeroLine2 data-text=" Unparalleled."> Unparalleled.</SubHeroLine2>
+        <SubHeroLine1 ref={(el) => (heroSubtitle = el)} data-text="<> Unique.">
+          {'<>'} Unique.{' '}
+        </SubHeroLine1>
+        <SubHeroLine2
+          ref={(el) => (heroSubtitle2 = el)}
+          data-text=" Unparalleled."
+        >
+          {' '}
+          Unparalleled.
+        </SubHeroLine2>
       </SubHeroWrapper>
       <SubHeroWrapper2>
-        <SubHeroLine2 data-text="<> Unique.">{'<>'} Unique. </SubHeroLine2>
-        <SubHeroLine1 data-text=" Unparalleled."> Unparalleled.</SubHeroLine1>
+        <SubHeroLine2 ref={(el) => (heroSubtitle3 = el)} data-text="<> Unique.">
+          {'<>'} Unique.{' '}
+        </SubHeroLine2>
+        <SubHeroLine1
+          ref={(el) => (heroSubtitle4 = el)}
+          data-text=" Unparalleled."
+        >
+          {' '}
+          Unparalleled.
+        </SubHeroLine1>
       </SubHeroWrapper2>
     </>
   );
@@ -90,20 +168,30 @@ const HeroText = styled.h1`
   max-width: 39.875rem;
 
   margin-bottom: 4.5rem;
+
+  opacity: 0;
 `;
 
-const HeroButton = styled.button`
-  padding: 0.9375rem 2.875rem;
+const HeroButton = styled.a`
+  padding: 0.8375rem 2.775rem;
   border-radius: 1.875rem;
   border: none;
 
   background-color: #2c9487;
   color: #fff;
 
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 500;
 
-  margin-bottom: -6rem;
+  margin-bottom: -1.2rem;
+
+  transition: background-color 250ms ease-in-out;
+
+  opacity: 0;
+
+  &:hover {
+    background-color: #22796f;
+  }
 `;
 
 const SubHeroLine1 = styled.h1`

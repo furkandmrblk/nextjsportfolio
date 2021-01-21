@@ -1,17 +1,13 @@
 import Head from 'next/head';
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import GlobalStyle from '../theme/globalStyles';
 import GlobalContainer from '../theme/globalContainer';
-import Scrollbar from 'smooth-scrollbar';
 
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Projects from '../components/Projects';
-import Contact from '../components/Contact';
-import About from '../components/About';
+import AboutMePage from '../components/AboutMe';
 import Footer from '../components/Footer';
 
-export default function Home() {
+export default function AboutMe() {
   return (
     <>
       <Head>
@@ -22,14 +18,10 @@ export default function Home() {
         />
         <title>furkandmrblk</title>
       </Head>
-
       <GlobalContainer>
         <GlobalStyle />
         <Navbar />
-        <Hero />
-        <Projects />
-        <Contact />
-        <About />
+        <AboutMePage />
         <Footer />
       </GlobalContainer>
     </>
