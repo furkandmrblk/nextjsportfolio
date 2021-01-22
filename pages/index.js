@@ -2,7 +2,6 @@ import Head from 'next/head';
 import React, { useRef, useEffect } from 'react';
 import GlobalStyle from '../theme/globalStyles';
 import GlobalContainer from '../theme/globalContainer';
-import Scrollbar from 'smooth-scrollbar';
 
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -23,7 +22,7 @@ export default function Home() {
         <title>furkandmrblk</title>
       </Head>
 
-      <GlobalContainer>
+      <GlobalContainer id="global">
         <GlobalStyle />
         <Navbar />
         <Hero />

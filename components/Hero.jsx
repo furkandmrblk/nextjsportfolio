@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { TweenMax, Power3, Power2 } from 'gsap';
+import { TweenMax, Power3, Power2, Power4 } from 'gsap';
 
 export default function Hero() {
   let heroText = useRef(null);
@@ -41,7 +41,7 @@ export default function Hero() {
       x: 700,
       ease: Power3.easeOut,
     });
-    TweenMax.to([heroText, heroButton], 1.15, {
+    TweenMax.to([heroText, heroButton], 1.1, {
       opacity: 1,
       y: 40,
       ease: Power2.easeOut,
@@ -115,7 +115,7 @@ const SubHeroWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-top: 5.7rem;
+  margin-top: 8rem;
 `;
 const SubHeroWrapper2 = styled.div`
   display: flex;
@@ -123,7 +123,7 @@ const SubHeroWrapper2 = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-top: -3rem;
+  margin-top: -3.5rem;
 `;
 
 const HeroWrapper = styled.div`
@@ -134,7 +134,7 @@ const HeroWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-top: 7rem;
+  margin-top: 9.5rem;
   margin-right: 40.5rem;
 `;
 

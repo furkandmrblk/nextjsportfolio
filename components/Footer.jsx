@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <FooterWrapper>
       <FooterLine />
-      <FooterHome href="/#home">Home</FooterHome>
+      <FooterHome href="/">Home</FooterHome>
       <FooterWork href="/#projects">Work</FooterWork>
       <FooterAbout href="/about">About</FooterAbout>
       <LinkedIn

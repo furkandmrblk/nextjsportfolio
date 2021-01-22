@@ -13,11 +13,12 @@ const GlobalStyle = createGlobalStyle`
     }
     
     body {
-    padding: 0;
-     color: #ececec;
-     background: #14141c;
-     font-family: 'Poppins', sans-serif;
-    overflow-x:hidden;
+        padding: 0;
+        margin: 0 auto;
+        color: #ececec;
+        background: #14141c;
+        font-family: 'Poppins', sans-serif;
+        overflow-x:hidden;
     
 
      h1,h2,h3,h4,h5 {

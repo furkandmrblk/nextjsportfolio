@@ -17,8 +17,11 @@ export default function Navbar() {
 
   return (
     <HeaderContainer>
-      <Nav open={open} id="home">
-        <Logo href="/">furkan</Logo>
+      <Nav open={open}>
+        <Spaceholder>iiiiiiiiiii </Spaceholder>
+        <Logo href="/" data-text="furkan">
+          furkan
+        </Logo>
         <HamburgerWrap onClick={openMenu}>
           <MenuLink>menu</MenuLink>
           <HamburgerLineWrap>
@@ -65,15 +68,31 @@ const HeaderContainer = styled.div`
 `;
 
 const Nav = styled.div`
-  position: relative;
-  display: grid;
+  z-index: 1200;
+  position: fixed;
+  width: 88%;
+  display: flex;
   align-content: center;
-  justify-content: center;
-  grid-template-columns: 33.3% 33.4% 33%;
-  grid-template-areas: '. logo menu';
-  width: 100%;
+  justify-content: space-between;
 
-  background-color: ${({ open }) => (open ? ' #14141c' : 'transparent')};
+  transition: background-color 1.15s cubic-bezier(1, 0, 0.37, 0.37);
+
+  background-color: ${({ open }) => (open ? '#14141c' : 'transparent')};
+
+  margin-top: -2.1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #14141c;
+
+    display: ${({ open }) => (open ? '' : 'none')};
+    min-width: ${({ open }) => (open ? '100vw' : '0')};
+  }
 `;
 
 const Logo = styled.a`
@@ -82,13 +101,28 @@ const Logo = styled.a`
   font-size: 2.5rem;
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 0.3px #fff;
+  -webkit-text-stroke: 0.3px #ececec;
 
-  justify-self: center;
-  align-self: center;
-  grid-area: logo;
+  margin-top: 2.125rem;
 
   cursor: default;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    content: attr(data-text);
+    transition: max-height 500ms ease-in-out;
+    -webkit-text-fill-color: #ececec;
+    max-height: 0;
+  }
+
+  &:hover:before {
+    max-height: 100%;
+  }
 `;
 
 const HamburgerLineWrap = styled.div`
@@ -104,8 +138,6 @@ const MenuLink = styled.h1`
 
   justify-self: center;
   align-self: center;
-
-  grid-area: menu;
 `;
 
 const MenuLinkLine = styled.span`
@@ -146,14 +178,14 @@ const MenuLinkLine2 = styled.span`
 `;
 
 const HamburgerWrap = styled.a`
-  margin: 0 9rem;
-
   display: flex;
+
   flex-direction: row;
   align-items: center;
   justify-content: center;
 
-  grid-area: menu;
+  margin-right: 7rem;
+  margin-top: 2.125rem;
 
   cursor: default;
 
@@ -165,12 +197,22 @@ const HamburgerWrap = styled.a`
   }
 `;
 
+const Spaceholder = styled.h1`
+  -webkit-text-fill-color: transparent;
+  -webkit-user-select: none;
+  cursor: default;
+  margin-left: 7rem;
+  margin-top: 2.125rem;
+`;
+
 const Menu = styled.div`
   z-index: 1000;
   position: fixed;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  margin-top: 2rem;
 
   overflow: hidden;
 
@@ -204,6 +246,8 @@ const MenuItems = styled.a`
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.5px #ececec;
   text-align: center;
+
+  margin-top: 2rem;
 
   &::before {
     position: absolute;
