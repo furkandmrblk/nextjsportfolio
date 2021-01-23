@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes, css } from 'styled-components';
-import Link from 'next/link';
+import styled, { keyframes } from 'styled-components';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

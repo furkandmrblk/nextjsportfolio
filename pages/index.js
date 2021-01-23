@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React, { useRef, useEffect, useCallback } from 'react';
+import React from 'react';
 import GlobalStyle from '../theme/globalStyles';
 import GlobalContainer from '../theme/globalContainer';
 

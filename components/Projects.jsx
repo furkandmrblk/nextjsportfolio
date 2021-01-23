@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { gsap, Power3 } from 'gsap';
 
@@ -6,6 +6,29 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
+  const [close, setClose] = useState(false);
+  const [close2, setClose2] = useState(false);
+
+  const closeModal = () => {
+    setClose(!close);
+
+    if (close === true) {
+      document.body.style.overflow = 'visible';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeModal2 = () => {
+    setClose2(!close2);
+
+    if (close2 === true) {
+      document.body.style.overflow = 'visible';
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
   let projectTitle = useRef(null);
   let project0 = useRef(null);
   let project1 = useRef(null);
@@ -39,18 +62,75 @@ export default function Projects() {
     <ProjectsWrapper id="projects">
       <ProjectTitle ref={(el) => (projectTitle = el)}>projects</ProjectTitle>
       <ProjectNumbers ref={(el) => (projectNumber = el)}>00</ProjectNumbers>
-      <IndividualWrapper>
-        <Project id="00" data-text="frkn" ref={(el) => (project0 = el)}>
+      <Modal close={close}>
+        <CloseModal onClick={closeModal} />
+        <ModalContent>
+          <ModalTitle>frkn</ModalTitle>
+          <ModalNumber>00</ModalNumber>
+          <ModalDescription>
+            This was my first ever project that I created myself.
+            <br /> It’s also my first ever portfolio. <br />
+            I built this project with React.js and styled it with
+            styled-components. <br />
+          </ModalDescription>
+          <ModalHrefs
+            target="_blank"
+            href="https://github.com/furkandmrblk/myportfolio"
+          >
+            GitHub Repository
+          </ModalHrefs>
+          <ModalHrefs target="_blank" href="https://furkandmrblk.netlify.app/">
+            Live Website
+          </ModalHrefs>
+          <ModalProject src="/portfolio0.png" alt="portfolio" />
+          <ModalProject src="/aboutportfolio.png" alt="aboutpage" />
+        </ModalContent>
+      </Modal>
+      <IndividualWrapper id="projectzero">
+        <Project
+          id="00"
+          data-text="frkn"
+          ref={(el) => (project0 = el)}
+          onClick={closeModal}
+        >
           frkn
         </Project>
       </IndividualWrapper>
       <ProjectNumbers ref={(el) => (projectNumber2 = el)}>01</ProjectNumbers>
-      <Project data-text="makimaki" ref={(el) => (project1 = el)}>
-        makimaki
-      </Project>
+      <Modal2 close2={close2}>
+        <CloseModal onClick={closeModal2} />
+        <ModalContent>
+          <ModalTitle>makimaki</ModalTitle>
+          <ModalNumber>01</ModalNumber>
+          <ModalDescription>
+            This is a template for an asian restaurant. <br /> For this project
+            I used React.js and SCSS for the styling. <br />
+          </ModalDescription>
+          <ModalHrefs
+            target="_blank"
+            href="https://github.com/furkandmrblk/myportfolio"
+          >
+            GitHub Repository
+          </ModalHrefs>
+          <ModalHrefs target="_blank" href="https://furkandmrblk.netlify.app/">
+            Live Website
+          </ModalHrefs>
+          <ModalProject src="/makimakifull.png" alt="makimaki" />
+          <ModalProject src="/makimakimenü.png" alt="makimakimenü" />
+        </ModalContent>
+      </Modal2>
+      <IndividualWrapper id="projectone">
+        <Project
+          data-text="makimaki"
+          ref={(el) => (project1 = el)}
+          onClick={closeModal2}
+        >
+          makimaki
+        </Project>
+      </IndividualWrapper>
       <ProjectNumbers ref={(el) => (projectNumber3 = el)}>02</ProjectNumbers>
-      <Project data-text="streamnow" ref={(el) => (project2 = el)}>
-        streamnow
+      <Project data-text="coming soon ..." ref={(el) => (project2 = el)}>
+        coming soon ...
       </Project>
     </ProjectsWrapper>
   );
@@ -66,6 +146,7 @@ const ProjectsWrapper = styled.div`
 `;
 
 const IndividualWrapper = styled.div`
+  display: block;
   position: relative;
 `;
 
@@ -124,4 +205,121 @@ const Project = styled.a`
   }
 `;
 
-const Frkn = styled.img``;
+const Modal = styled.div`
+  z-index: 1300;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 758px;
+  max-height: 100%;
+
+  width: 1107px;
+  max-width: 100%;
+
+  background-color: #1c1c2b;
+
+  margin-top: 2rem;
+
+  display: ${({ close }) => (close ? 'visible' : 'none')};
+`;
+
+const Modal2 = styled.div`
+  z-index: 1300;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 758px;
+  max-height: 100%;
+
+  width: 1107px;
+  max-width: 100%;
+
+  background-color: #1c1c2b;
+
+  margin-top: 2rem;
+
+  display: ${({ close2 }) => (close2 ? 'visible' : 'none')};
+`;
+
+const ModalContent = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: #1c1c2b;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  padding: 20px 50px 20px 20px;
+
+  overflow-y: auto;
+`;
+
+const CloseModal = styled.div`
+  position: absolute;
+
+  z-index: 1301;
+
+  background-image: url('/Close.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  height: 20px;
+  width: 20px;
+
+  margin-top: 1.5rem;
+  margin-left: 65.5rem;
+`;
+
+const ModalTitle = styled.h1`
+  font-family: 'Racing Sans One', cursive;
+  font-weight: 300;
+  font-size: 65px;
+`;
+
+const ModalNumber = styled.h1`
+  font-family: 'Racing Sans One', cursive;
+  font-weight: 300;
+  font-size: 30px;
+`;
+
+const ModalDescription = styled.h1`
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+
+  max-width: 830px;
+
+  margin-top: 3rem;
+`;
+
+const ModalHrefs = styled.a`
+  color: #2c9487;
+
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+
+  margin-top: 1.5rem;
+
+  cursor: none;
+`;
+
+const ModalProject = styled.img`
+  width: 850px;
+
+  object-fit: contain;
+
+  margin-top: 3rem;
+`;

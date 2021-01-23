@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { TweenMax, Power3, Power2, Power4 } from 'gsap';
+import styled from 'styled-components';
+import { TweenMax, Power3, Power2 } from 'gsap';
 
 export default function Hero() {
   let heroText = useRef(null);

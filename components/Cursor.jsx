@@ -1,10 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 export default function Cursor() {
   const cursorRef = useRef(null);
   useEffect(() => {
     if (cursorRef.current == null || cursorRef == null) return;
+
+    cursorRef.current.classList.add('styledCursor');
+
     document.addEventListener('mousemove', (e) => {
       if (cursorRef.current == null) return;
       cursorRef.current.setAttribute(
@@ -31,6 +34,34 @@ export default function Cursor() {
       if (cursorRef.current == null) return;
       cursorRef.current.classList.remove('removeCursor');
     });
+
+    var projectZero = document.getElementById('projectzero');
+
+    projectZero.addEventListener('mouseenter', () => {
+      if (cursorRef.current == null) return;
+      cursorRef.current.classList.remove('styledCursor');
+      cursorRef.current.classList.add('showProject');
+    });
+
+    projectZero.addEventListener('mouseleave', () => {
+      if (cursorRef.current == null) return;
+      cursorRef.current.classList.remove('showProject');
+      cursorRef.current.classList.add('styledCursor');
+    });
+
+    var projectOne = document.getElementById('projectone');
+
+    projectOne.addEventListener('mouseenter', () => {
+      if (cursorRef.current == null) return;
+      cursorRef.current.classList.remove('styledCursor');
+      cursorRef.current.classList.add('showProject1');
+    });
+
+    projectOne.addEventListener('mouseleave', () => {
+      if (cursorRef.current == null) return;
+      cursorRef.current.classList.remove('showProject1');
+      cursorRef.current.classList.add('styledCursor');
+    });
   }, []);
 
   return <StyledCursor ref={cursorRef} />;
@@ -38,10 +69,6 @@ export default function Cursor() {
 
 const StyledCursor = styled.div`
   z-index: 9999;
-  width: 15px;
-  height: 15px;
-  border: 1px solid #ffffff;
-  border-radius: 50%;
   position: absolute;
   pointer-events: none;
 `;

@@ -10,6 +10,18 @@
   }
 }
 
+@keyframes showProjectOnHover {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .cursorOnClick {
   animation: cursorOnClickAnimation 0.4s forwards;
 }
@@ -20,10 +32,38 @@
 }
 
 .showProject {
-  background-image: url('/frkn.PNG');
-  z-index: 9999;
   width: 596px;
   height: 310px;
-  position: absolute;
-  pointer-events: none;
+  border-radius: 2px;
+
+  background-image: url('/frkn.PNG');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  animation: showProjectOnHover 550ms forwards;
+
+  transition: animation 350ms ease-in-out;
+}
+
+.showProject1 {
+  width: 596px;
+  height: 310px;
+  border-radius: 2px;
+
+  background-image: url('/maki.PNG');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  animation: showProjectOnHover 550ms forwards;
+
+  transition: animation 350ms ease-in-out;
+}
+
+.styledCursor {
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
 }

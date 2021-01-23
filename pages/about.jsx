@@ -3,7 +3,7 @@ import React from 'react';
 import GlobalStyle from '../theme/globalStyles';
 import GlobalContainer from '../theme/globalContainer';
 
-import Cursor from '../components/Cursor';
+import CursorAbout from '../components/CursorAbout';
 import Navbar from '../components/Navbar';
 import AboutMePage from '../components/AboutMe';
 import Footer from '../components/Footer';
@@ -20,7 +20,7 @@ export default function AboutMe() {
         <title>furkandmrblk</title>
       </Head>
       <GlobalContainer>
-        <Cursor />
+        <CursorAbout />
         <GlobalStyle />
         <Navbar />
         <AboutMePage />
