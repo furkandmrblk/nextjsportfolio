@@ -183,6 +183,8 @@ const HeroButton = styled.a`
   font-size: 1.2rem;
   font-weight: 500;
 
+  cursor: none;
+
   margin-bottom: -1.2rem;
 
   transition: background-color 250ms ease-in-out;

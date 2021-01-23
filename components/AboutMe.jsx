@@ -106,6 +106,8 @@ const LinkedIn = styled.a`
   background-position: center;
   height: 2.75rem;
   width: 2.6875rem;
+
+  cursor: none;
 `;
 
 const GitHub = styled.a`
@@ -115,4 +117,6 @@ const GitHub = styled.a`
   background-position: center;
   height: 2.734375rem;
   width: 2.6875rem;
+
+  cursor: none;
 `;

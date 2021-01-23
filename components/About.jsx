@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { gsap, Power3 } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
+gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
+  let aboutTitle = useRef(null);
+
+  useEffect(() => {
+    gsap.from(aboutTitle, 1.8, {
+      opacity: 0,
+      y: 40,
+      ease: Power3.easeOut,
+      scrollTrigger: aboutTitle,
+    });
+  });
+
   return (
     <AboutWrapper>
-      <AboutTitle>Wanna know more about me?</AboutTitle>
+      <AboutTitle ref={(el) => (aboutTitle = el)}>
+        Wanna know more about me?
+      </AboutTitle>
       <AboutButton href="/about">about me</AboutButton>
     </AboutWrapper>
   );
@@ -36,6 +52,8 @@ const AboutButton = styled.a`
 
   font-size: 1.2rem;
   font-weight: 500;
+
+  cursor: none;
 
   margin-top: 5.1875rem;
 

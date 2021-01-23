@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import GlobalStyle from '../theme/globalStyles';
 import GlobalContainer from '../theme/globalContainer';
 
+import Cursor from '../components/Cursor';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Projects from '../components/Projects';
@@ -21,8 +22,8 @@ export default function Home() {
         />
         <title>furkandmrblk</title>
       </Head>
-
       <GlobalContainer id="global">
+        <Cursor />
         <GlobalStyle />
         <Navbar />
         <Hero />

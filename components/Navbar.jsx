@@ -97,15 +97,16 @@ const Nav = styled.div`
 
 const Logo = styled.a`
   position: relative;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Racing Sans One', cursive;
   font-size: 2.5rem;
-  font-weight: 900;
+  font-weight: 300;
+
   color: transparent;
-  -webkit-text-stroke: 0.3px #ececec;
+  -webkit-text-stroke: 0.5px #ececec;
+
+  cursor: none;
 
   margin-top: 2.125rem;
-
-  cursor: default;
 
   &::before {
     position: absolute;
@@ -187,7 +188,7 @@ const HamburgerWrap = styled.a`
   margin-right: 7rem;
   margin-top: 2.125rem;
 
-  cursor: default;
+  cursor: none;
 
   &:hover ${MenuLinkLine2} {
     animation-name: ${hamburgerAnimation};
@@ -246,6 +247,8 @@ const MenuItems = styled.a`
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.5px #ececec;
   text-align: center;
+
+  cursor: none;
 
   margin-top: 2rem;
 

@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { gsap, Power3 } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
+  let contactTitle = useRef(null);
+
+  useEffect(() => {
+    gsap.from(contactTitle, 1.8, {
+      opacity: 0,
+      y: 40,
+      ease: Power3.easeOut,
+      scrollTrigger: contactTitle,
+    });
+  });
+
   return (
     <ContactWrapper id="contact">
       <ContactTitle>contact</ContactTitle>
-      <ContactSubtitle>Interested? Contact Me!</ContactSubtitle>
+      <ContactSubtitle ref={(el) => (contactTitle = el)}>
+        Interested? Contact Me!
+      </ContactSubtitle>
       <ContactFormWrapper>
         <ContactForm>
           <EmailForm placeholder="e-mail" />
@@ -83,6 +99,8 @@ const EmailForm = styled.input`
   font-weight: 300;
   font-size: 1.25rem;
 
+  cursor: none;
+
   &::-webkit-input-placeholder {
     text-align: center;
   }
@@ -99,6 +117,8 @@ const NameForm = styled.input`
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 1.25rem;
+
+  cursor: none;
 
   margin-top: 2.5996875rem;
 
@@ -117,6 +137,8 @@ const FormButton = styled.button`
 
   font-size: 1.25rem;
   font-weight: 500;
+
+  cursor: none;
 
   margin-top: 2.5996875rem;
   margin-left: 7.68rem;
@@ -142,6 +164,8 @@ const ContactFormArea = styled.textarea`
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 1rem;
+
+  cursor: none;
 
   margin-left: 1.0625rem;
 `;

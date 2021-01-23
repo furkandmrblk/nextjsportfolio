@@ -1,3 +1,5 @@
+import '../styles/cursorStyle.css';
+
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
 }

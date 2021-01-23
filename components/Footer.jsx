@@ -47,16 +47,25 @@ const FooterHome = styled.a`
   font-size: 1rem;
   font-weight: 400;
 
+  cursor: none;
+
   text-decoration: none;
   color: #ececec;
 
   grid-area: home;
 
   justify-self: center;
+
+  transition: color 300ms ease-in-out;
+  &:hover {
+    color: #8d89ff;
+  }
 `;
 const FooterWork = styled.a`
   font-size: 1rem;
   font-weight: 400;
+
+  cursor: none;
 
   text-decoration: none;
   color: #ececec;
@@ -64,10 +73,17 @@ const FooterWork = styled.a`
   grid-area: work;
 
   justify-self: center;
+
+  transition: color 300ms ease-in-out;
+  &:hover {
+    color: #8d89ff;
+  }
 `;
 const FooterAbout = styled.a`
   font-size: 1rem;
   font-weight: 400;
+
+  cursor: none;
 
   grid-area: about;
 
@@ -75,6 +91,11 @@ const FooterAbout = styled.a`
   color: #ececec;
 
   justify-self: center;
+
+  transition: color 300ms ease-in-out;
+  &:hover {
+    color: #8d89ff;
+  }
 `;
 const FooterCopyright = styled.h1`
   font-size: 1rem;
@@ -94,6 +115,8 @@ const LinkedIn = styled.a`
   height: 2.75rem;
   width: 2.6875rem;
 
+  cursor: none;
+
   grid-area: logos;
 
   margin-left: 8.5rem;
@@ -107,6 +130,8 @@ const GitHub = styled.a`
   background-position: center;
   height: 2.734375rem;
   width: 2.6875rem;
+
+  cursor: none;
 
   grid-area: logos;
 

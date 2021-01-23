@@ -1,0 +1,29 @@
+@keyframes cursorOnClickAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.cursorOnClick {
+  animation: cursorOnClickAnimation 0.4s forwards;
+}
+
+.removeCursor {
+  transition: display 300ms ease-in-out;
+  display: none;
+}
+
+.showProject {
+  background-image: url('/frkn.PNG');
+  z-index: 9999;
+  width: 596px;
+  height: 310px;
+  position: absolute;
+  pointer-events: none;
+}

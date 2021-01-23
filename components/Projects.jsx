@@ -1,40 +1,57 @@
 import React, { useRef, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { gsap, Power3 } from 'gsap';
+
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
-  const showImage = () => {
-    var ImageFrkn = document.getElementById('frkn');
-    var FrknProject = document.getElementById('00');
+  let projectTitle = useRef(null);
+  let project0 = useRef(null);
+  let project1 = useRef(null);
+  let project2 = useRef(null);
+  let projectNumber = useRef(null);
+  let projectNumber2 = useRef(null);
+  let projectNumber3 = useRef(null);
 
-    FrknProject.onmouseover = function () {
-      ImageFrkn.style.display = 'block';
-    };
-
-    FrknProject.addEventListener('mousemove', function (e) {
-      ImageFrkn.style.positionX = -e.offsetX + 'px';
-      ImageFrkn.style.positionY = -e.offsetY + 'px';
-      console.log(e);
+  useEffect(() => {
+    gsap.from(projectNumber, 2, {
+      opacity: 0,
+      x: -150,
+      ease: Power3.easeOut,
+      scrollTrigger: project0,
     });
-
-    FrknProject.onmouseout = function () {
-      ImageFrkn.style.display = 'none';
-    };
-  };
+    gsap.from(projectNumber2, 2, {
+      opacity: 0,
+      x: 150,
+      ease: Power3.easeOut,
+      scrollTrigger: project1,
+    });
+    gsap.from(projectNumber3, 2, {
+      opacity: 0,
+      x: -150,
+      ease: Power3.easeOut,
+      scrollTrigger: project2,
+    });
+  });
 
   return (
     <ProjectsWrapper id="projects">
-      <ProjectTitle>projects</ProjectTitle>
-      <ProjectNumbers>00</ProjectNumbers>
-      <IndividualWrapper onMouseOver={showImage}>
-        <Frkn id="frkn" src="frkn.PNG" alt="frkn" />
-        <Project id="00" data-text="frkn">
+      <ProjectTitle ref={(el) => (projectTitle = el)}>projects</ProjectTitle>
+      <ProjectNumbers ref={(el) => (projectNumber = el)}>00</ProjectNumbers>
+      <IndividualWrapper>
+        <Project id="00" data-text="frkn" ref={(el) => (project0 = el)}>
           frkn
         </Project>
       </IndividualWrapper>
-      <ProjectNumbers>01</ProjectNumbers>
-      <Project data-text="makimaki">makimaki</Project>
-      <ProjectNumbers>02</ProjectNumbers>
-      <Project data-text="streamnow">streamnow</Project>
+      <ProjectNumbers ref={(el) => (projectNumber2 = el)}>01</ProjectNumbers>
+      <Project data-text="makimaki" ref={(el) => (project1 = el)}>
+        makimaki
+      </Project>
+      <ProjectNumbers ref={(el) => (projectNumber3 = el)}>02</ProjectNumbers>
+      <Project data-text="streamnow" ref={(el) => (project2 = el)}>
+        streamnow
+      </Project>
     </ProjectsWrapper>
   );
 }
@@ -107,17 +124,4 @@ const Project = styled.a`
   }
 `;
 
-const Frkn = styled.img`
-  position: absolute;
-
-  z-index: 100;
-
-  height: 350px;
-  width: 600px;
-
-  border: 0.5px solid #393e46;
-  border-radius: 2px;
-
-  display: none;
-  margin-left: 20rem;
-`;
+const Frkn = styled.img``;
