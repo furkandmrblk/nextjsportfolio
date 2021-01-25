@@ -124,6 +124,9 @@ const SubHeroWrapper = styled.div`
   @media ${maxdevice.tablet} {
     margin-top: 5rem;
   }
+  @media ${maxdevice.mobileL} {
+    flex-wrap: wrap;
+  }
 `;
 const SubHeroWrapper2 = styled.div`
   display: flex;
@@ -144,6 +147,9 @@ const SubHeroWrapper2 = styled.div`
   }
   @media ${maxdevice.tablet} {
     margin-top: 0rem;
+  }
+  @media ${maxdevice.mobileL} {
+    flex-wrap: wrap;
   }
 `;
 
@@ -440,10 +446,11 @@ const SubHeroLine1 = styled.h1`
     font-size: 1.63rem;
   }
   @media ${maxdevice.mobileL} {
-    font-size: 1.366rem;
+    font-size: 2.6rem;
+    margin-bottom: -0.8rem;
   }
   @media ${maxdevice.mobileM} {
-    font-size: 1.09rem;
+    font-size: 2.1rem;
   }
 `;
 const SubHeroLine2 = styled.h1`
@@ -491,9 +498,10 @@ const SubHeroLine2 = styled.h1`
     font-size: 1.63rem;
   }
   @media ${maxdevice.mobileL} {
-    font-size: 1.366rem;
+    font-size: 2.6rem;
+    margin-bottom: -0.8rem;
   }
   @media ${maxdevice.mobileM} {
-    font-size: 1.09rem;
+    font-size: 2.1rem;
   }
 `;
