@@ -203,6 +203,7 @@ const SphereWrapper = styled.div`
     width: 100px;
   }
   @media ${maxdevice.mobileL} {
+    display: none;
     width: 70px;
   }
   @media ${maxdevice.mobileM} {
@@ -232,6 +233,7 @@ const Sphere1 = styled.div`
     width: 4rem;
   }
   @media ${maxdevice.mobileL} {
+    display: none;
     height: 3.5rem;
     width: 3.5rem;
   }
@@ -265,6 +267,7 @@ const Sphere2 = styled.div`
     width: 4rem;
   }
   @media ${maxdevice.mobileL} {
+    display: none;
     height: 3.5rem;
     width: 3.5rem;
 
@@ -302,6 +305,7 @@ const Sphere3 = styled.div`
     width: 4rem;
   }
   @media ${maxdevice.mobileL} {
+    display: none;
     height: 3.5rem;
     width: 3.5rem;
 
