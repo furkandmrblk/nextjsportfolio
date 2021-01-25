@@ -69,8 +69,7 @@ const HeaderContainer = styled.div`
 
 const Nav = styled.div`
   z-index: 1200;
-  position: fixed;
-  width: 88%;
+  position: relative;
   display: flex;
   align-content: center;
   justify-content: space-between;

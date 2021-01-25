@@ -89,7 +89,10 @@ const AboutParagraph = styled.h1`
 
   @media ${maxdevice.mobileL} {
     margin-top: 5.625rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
+  }
+  @media ${maxdevice.mobileS} {
+    fonz-size: 0.4rem;
   }
 `;
 
@@ -102,7 +105,10 @@ const AboutParagraph2 = styled.h1`
   margin-top: 2.5rem;
 
   @media ${maxdevice.mobileL} {
-    font-size: 1rem;
+    font-size: 0.8rem;
+  }
+  @media ${maxdevice.mobileS} {
+    fonz-size: 0.4rem;
   }
 `;
 const AboutParagraph3 = styled.h1`
@@ -114,7 +120,10 @@ const AboutParagraph3 = styled.h1`
   margin-top: 2.5rem;
 
   @media ${maxdevice.mobileL} {
-    font-size: 1rem;
+    font-size: 0.8rem;
+  }
+  @media ${maxdevice.mobileS} {
+    fonz-size: 0.4rem;
   }
 `;
 
@@ -139,6 +148,13 @@ const LinkedIn = styled.a`
   width: 2.6875rem;
 
   cursor: pointer;
+
+  @media ${maxdevice.mobileL} {
+    height: 2rem;
+    width: 2rem;
+
+    margin-left: 1rem;
+  }
 `;
 
 const GitHub = styled.a`
@@ -150,4 +166,11 @@ const GitHub = styled.a`
   width: 2.6875rem;
 
   cursor: pointer;
+
+  @media ${maxdevice.mobileL} {
+    height: 2rem;
+    width: 2rem;
+
+    margin-right: 1rem;
+  }
 `;
