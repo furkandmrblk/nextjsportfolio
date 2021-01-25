@@ -34,6 +34,10 @@ const AboutWrapper = styled.div`
   justify-content: center;
 
   margin-top: 23.4375rem;
+
+  @media ${maxdevice.mobileL} {
+    margin-top: 8.4375rem;
+  }
 `;
 
 const AboutTitle = styled.h1`
@@ -78,16 +82,15 @@ const AboutButton = styled.a`
     background-color: #7672eb;
   }
 
-  @media ${maxdevice.desktopL} {
+  @media ${maxdevice.laptopS} {
     padding: 0.8375rem 2.475rem;
-    font-size: 1rem;
-  }
-  @media ${maxdevice.laptopL} {
-    padding: 0.8375rem 2.475rem;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
   }
   @media ${maxdevice.tablet} {
     padding: 0.5175rem 1.975rem;
     font-size: 0.7rem;
+  }
+  @media ${maxdevice.mobileL} {
+    margin-top: 4rem;
   }
 `;

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-
 import styled from 'styled-components';
+import { maxdevice } from '../theme/mediaQueries';
 
 export default function Cursor() {
   const cursorRef = useRef(null);
@@ -68,4 +68,8 @@ const StyledCursor = styled.div`
   z-index: 9999;
   position: absolute;
   pointer-events: none;
+
+  @media ${maxdevice.nolaptop} {
+    display: none;
+  }
 `;

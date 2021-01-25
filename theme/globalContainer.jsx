@@ -9,6 +9,9 @@ const GlobalContainer = styled.div`
   @media ${maxdevice.laptop} {
     padding: 2.125rem 2.9625rem;
   }
+  @media ${maxdevice.mobileL} {
+    padding: 2.125rem 2rem;
+  }
 `;
 
 export default GlobalContainer;

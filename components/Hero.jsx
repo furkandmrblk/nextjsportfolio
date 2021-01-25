@@ -69,7 +69,10 @@ export default function Hero() {
         <HeroTextWrapper>
           <HeroText ref={(el) => (heroText = el)}>
             A web developer that will{' '}
-            <span style={{ fontWeight: '600' }}>grow your brand</span> & get you
+            <span style={{ fontWeight: '600' }}>
+              grow <br /> your brand
+            </span>{' '}
+            & get you
             <span style={{ fontWeight: '600' }}> results</span>.
           </HeroText>
           <HeroButton
@@ -137,9 +140,9 @@ const SubHeroWrapper2 = styled.div`
     margin-top: -2.4rem;
   }
   @media ${maxdevice.laptop} {
-    margin-top: -1.8rem;
+    margin-top: -1.5rem;
   }
-  @media ${maxdevice.laptop} {
+  @media ${maxdevice.tablet} {
     margin-top: 0rem;
   }
 `;
@@ -154,9 +157,17 @@ const HeroWrapper = styled.div`
 
   margin-top: 9.5rem;
   margin-right: 40.5rem;
-
-  @media ${maxdevice.laptopS} {
+  @media ${maxdevice.desktop} {
+    margin-right: 40.5rem;
+  }
+  @media ${maxdevice.desktopL} {
     margin-right: 20rem;
+  }
+  @media ${maxdevice.laptopS} {
+    margin-right: 15rem;
+  }
+  @media ${maxdevice.laptop} {
+    margin-right: 8rem;
   }
   @media ${maxdevice.tablet} {
     margin-top: 4rem;
@@ -171,8 +182,25 @@ const SphereWrapper = styled.div`
   height: 250px;
   width: 195px;
 
+  @media ${maxdevice.desktopL} {
+    margin-left: -10rem;
+  }
+  @media ${maxdevice.desktopS} {
+    margin-left: 0rem;
+  }
+  @media ${maxdevice.laptopS} {
+    margin-left: -4rem;
+    width: 145px;
+  }
   @media ${maxdevice.tablet} {
+    margin-left: 0rem;
     width: 100px;
+  }
+  @media ${maxdevice.mobileL} {
+    width: 70px;
+  }
+  @media ${maxdevice.mobileM} {
+    width: 60px;
   }
 `;
 
@@ -184,15 +212,11 @@ const Sphere1 = styled.div`
 
   border-radius: 50%;
 
-  @media ${maxdevice.desktopL} {
-    height: 6.4rem;
-    width: 6.4rem;
+  @media ${maxdevice.laptopS} {
+    height: 6rem;
+    width: 6rem;
   }
 
-  @media ${maxdevice.laptopL} {
-    height: 5rem;
-    width: 5rem;
-  }
   @media ${maxdevice.laptop} {
     height: 4.5rem;
     width: 4.5rem;
@@ -221,18 +245,12 @@ const Sphere2 = styled.div`
 
   margin-top: 7rem;
 
-  @media ${maxdevice.desktopL} {
-    height: 6.4rem;
-    width: 6.4rem;
-  }
-
-  @media ${maxdevice.laptopL} {
-    height: 5rem;
-    width: 5rem;
-
-    margin-top: 5.5rem;
+  @media ${maxdevice.laptopS} {
+    height: 6rem;
+    width: 6rem;
   }
   @media ${maxdevice.laptop} {
+    margin-top: 5.5rem;
     height: 4.5rem;
     width: 4.5rem;
   }
@@ -264,18 +282,12 @@ const Sphere3 = styled.div`
 
   margin-top: 14rem;
 
-  @media ${maxdevice.desktopL} {
-    height: 6.4rem;
-    width: 6.4rem;
-  }
-
-  @media ${maxdevice.laptopL} {
-    height: 5rem;
-    width: 5rem;
-
-    margin-top: 11rem;
+  @media ${maxdevice.laptopS} {
+    height: 6rem;
+    width: 6rem;
   }
   @media ${maxdevice.laptop} {
+    margin-top: 11rem;
     height: 4.5rem;
     width: 4.5rem;
   }
@@ -312,32 +324,26 @@ const HeroText = styled.h1`
   margin-bottom: 4.5rem;
 
   opacity: 0;
-
-  @media ${maxdevice.desktopL} {
-    font-size: 1.7115rem;
-
-    max-width: 33.4375rem;
+  @media ${maxdevice.laptopL} {
+    font-size: 2rem;
   }
 
-  @media ${maxdevice.laptopL} {
-    font-size: 1.19rem;
+  @media ${maxdevice.laptopS} {
+    font-size: 1.5rem;
+    margin-bottom: 5.2rem;
+  }
+  @media ${maxdevice.laptop} {
+    font-size: 1.2rem;
 
     margin-bottom: 4rem;
   }
-  @media ${maxdevice.laptopS} {
-    font-size: 1.19rem;
-  }
-  @media ${maxdevice.laptop} {
-    font-size: 0.9rem;
-    max-width: 17rem;
-
-    margin-bottom: 3rem;
-  }
   @media ${maxdevice.mobileL} {
-    margin-bottom: 2.4rem;
+    font-size: 0.88rem;
+
+    margin-bottom: 3.3rem;
   }
   @media ${maxdevice.mobileM} {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 `;
 
@@ -364,20 +370,15 @@ const HeroButton = styled.a`
     background-color: #22796f;
   }
 
-  @media ${maxdevice.desktopL} {
-    padding: 0.8375rem 2.475rem;
-    font-size: 1rem;
+  @media ${maxdevice.laptopS} {
+    padding: 0.7175rem 2.475rem;
+    font-size: 1.1rem;
   }
 
-  @media ${maxdevice.laptopL} {
-    padding: 0.8375rem 2.475rem;
-    font-size: 0.8rem;
-
-    margin-bottom: -0.3rem;
-  }
   @media ${maxdevice.laptop} {
     padding: 0.7175rem 1.975rem;
     font-size: 0.7rem;
+    margin-bottom: 0rem;
   }
   @media ${maxdevice.tablet} {
     padding: 0.7175rem 1.975rem;

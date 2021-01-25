@@ -343,7 +343,7 @@ const Modal = styled.div`
 
   @media ${maxdevice.laptopL} {
     height: 583px;
-    width: 923px;
+    width: 950px;
   }
   @media ${maxdevice.laptop} {
     height: 448px;
@@ -377,7 +377,7 @@ const Modal2 = styled.div`
 
   @media ${maxdevice.laptopL} {
     height: 583px;
-    width: 923px;
+    width: 950px;
   }
   @media ${maxdevice.laptop} {
     height: 448px;
@@ -425,7 +425,7 @@ const CloseModal = styled.div`
   margin-left: 70.5rem;
 
   @media ${maxdevice.laptopL} {
-    margin-left: 54rem;
+    margin-left: 56rem;
   }
   @media ${maxdevice.laptop} {
     margin-left: 41rem;
@@ -494,7 +494,7 @@ const ModalHrefs = styled.a`
 
   text-decoration: none;
   color: #ececec;
-  cursor: default;
+  cursor: pointer;
 
   margin-top: 1.5rem;
 

@@ -41,6 +41,9 @@ const FooterWrapper = styled.div`
       '. about logos .'
       '. copyright copyright .';
   }
+  @media ${maxdevice.mobileL} {
+    margin-top: 12rem;
+  }
 `;
 
 const FooterLine = styled.div`
@@ -79,6 +82,10 @@ const FooterHome = styled.a`
   &:hover {
     color: #8d89ff;
   }
+
+  @media ${maxdevice.mobileL} {
+    font-size: 0.8rem;
+  }
 `;
 const FooterWork = styled.a`
   font-size: 1rem;
@@ -96,6 +103,10 @@ const FooterWork = styled.a`
   transition: color 300ms ease-in-out;
   &:hover {
     color: #8d89ff;
+  }
+
+  @media ${maxdevice.mobileL} {
+    font-size: 0.8rem;
   }
 `;
 const FooterAbout = styled.a`
@@ -119,10 +130,15 @@ const FooterAbout = styled.a`
   @media ${maxdevice.tablet} {
     text-align: center;
   }
+
+  @media ${maxdevice.mobileL} {
+    font-size: 0.8rem;
+  }
 `;
 const FooterCopyright = styled.h1`
   font-size: 1rem;
   font-weight: 400;
+  color: #797979;
 
   grid-area: copyright;
 
@@ -131,6 +147,9 @@ const FooterCopyright = styled.h1`
 
   @media ${maxdevice.tablet} {
     text-align: center;
+  }
+  @media ${maxdevice.mobileL} {
+    font-size: 0.8rem;
   }
 `;
 

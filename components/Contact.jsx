@@ -42,6 +42,10 @@ const ContactWrapper = styled.div`
   justify-content: center;
 
   margin-top: 23.4375rem;
+
+  @media ${maxdevice.mobileL} {
+    margin-top: 8.4375rem;
+  }
 `;
 
 const ContactTitle = styled.h1`
@@ -120,6 +124,9 @@ const ContactFormWrapper = styled.form`
 
   @media ${maxdevice.tablet} {
     flex-direction: column;
+  }
+  @media ${maxdevice.mobileL} {
+    margin-top: 4rem;
   }
 `;
 
