@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { maxdevice } from '../theme/mediaQueries';
 
 export default function Footer() {
   return (
@@ -30,6 +31,16 @@ const FooterWrapper = styled.div`
   justify-content: center;
 
   margin-top: 17.4375rem;
+
+  @media ${maxdevice.tablet} {
+    grid-template-columns: 5% 45% 45% 5%;
+    grid-template-rows: 1px 55px 55px 55px;
+    grid-template-areas:
+      '. line line .'
+      '. home work .'
+      '. about logos .'
+      '. copyright copyright .';
+  }
 `;
 
 const FooterLine = styled.div`
@@ -41,13 +52,21 @@ const FooterLine = styled.div`
   grid-area: line;
 
   justify-self: center;
+
+  @media ${maxdevice.laptop} {
+    width: 40rem;
+  }
+  @media ${maxdevice.tablet} {
+    border: 0.5px solid #ececec;
+    width: 17rem;
+  }
 `;
 
 const FooterHome = styled.a`
   font-size: 1rem;
   font-weight: 400;
 
-  cursor: none;
+  cursor: pointer;
 
   text-decoration: none;
   color: #ececec;
@@ -65,7 +84,7 @@ const FooterWork = styled.a`
   font-size: 1rem;
   font-weight: 400;
 
-  cursor: none;
+  cursor: pointer;
 
   text-decoration: none;
   color: #ececec;
@@ -83,7 +102,7 @@ const FooterAbout = styled.a`
   font-size: 1rem;
   font-weight: 400;
 
-  cursor: none;
+  cursor: pointer;
 
   grid-area: about;
 
@@ -96,6 +115,10 @@ const FooterAbout = styled.a`
   &:hover {
     color: #8d89ff;
   }
+
+  @media ${maxdevice.tablet} {
+    text-align: center;
+  }
 `;
 const FooterCopyright = styled.h1`
   font-size: 1rem;
@@ -105,6 +128,10 @@ const FooterCopyright = styled.h1`
 
   justify-self: center;
   align-self: flex-end;
+
+  @media ${maxdevice.tablet} {
+    text-align: center;
+  }
 `;
 
 const LinkedIn = styled.a`
@@ -115,12 +142,23 @@ const LinkedIn = styled.a`
   height: 2.75rem;
   width: 2.6875rem;
 
-  cursor: none;
+  cursor: pointer;
 
   grid-area: logos;
 
   margin-left: 8.5rem;
   margin-top: 1rem;
+
+  @media ${maxdevice.tablet} {
+    height: 1.9rem;
+    width: 1.9rem;
+
+    margin-left: 6rem;
+  }
+
+  @media ${maxdevice.mobileL} {
+    margin-left: 5rem;
+  }
 `;
 
 const GitHub = styled.a`
@@ -131,10 +169,17 @@ const GitHub = styled.a`
   height: 2.734375rem;
   width: 2.6875rem;
 
-  cursor: none;
+  cursor: pointer;
 
   grid-area: logos;
 
   margin-left: 3rem;
   margin-top: 1rem;
+
+  @media ${maxdevice.tablet} {
+    height: 1.9rem;
+    width: 1.9rem;
+
+    margin-left: 1.5rem;
+  }
 `;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { maxdevice } from '../theme/mediaQueries';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function Navbar() {
   return (
     <HeaderContainer>
       <Nav open={open}>
-        <Spaceholder>iiiiiiiiiii </Spaceholder>
+        <Spaceholder>spaceholder</Spaceholder>
         <Logo href="/" data-text="furkan">
           furkan
         </Logo>
@@ -103,8 +104,6 @@ const Logo = styled.a`
   color: transparent;
   -webkit-text-stroke: 0.5px #ececec;
 
-  cursor: none;
-
   margin-top: 2.125rem;
 
   &::before {
@@ -123,6 +122,17 @@ const Logo = styled.a`
   &:hover:before {
     max-height: 100%;
   }
+
+  @media ${maxdevice.tablet} {
+    font-size: 2rem;
+    margin-left: 2.125rem;
+  }
+  @media ${maxdevice.mobileL} {
+    margin-left: 0;
+  }
+  @media ${maxdevice.mobileM} {
+    font-size: 1.5rem;
+  }
 `;
 
 const HamburgerLineWrap = styled.div`
@@ -138,6 +148,13 @@ const MenuLink = styled.h1`
 
   justify-self: center;
   align-self: center;
+
+  @media ${maxdevice.tablet} {
+    font-size: 1.1rem;
+  }
+  @media ${maxdevice.mobileM} {
+    font-size: 1rem;
+  }
 `;
 
 const MenuLinkLine = styled.span`
@@ -150,6 +167,10 @@ const MenuLinkLine = styled.span`
 
   border: 1px solid #fff;
   border-radius: 5px;
+
+  @media ${maxdevice.mobileM} {
+    width: 1.5rem;
+  }
 `;
 
 const hamburgerAnimation = keyframes`
@@ -162,7 +183,6 @@ const hamburgerAnimation = keyframes`
       100% {
         width: 1.2rem;
       }
-
 `;
 
 const MenuLinkLine2 = styled.span`
@@ -175,6 +195,10 @@ const MenuLinkLine2 = styled.span`
 
   border: 1px solid #fff;
   border-radius: 5px;
+
+  @media ${maxdevice.mobileM} {
+    width: 1.1rem;
+  }
 `;
 
 const HamburgerWrap = styled.a`
@@ -187,7 +211,7 @@ const HamburgerWrap = styled.a`
   margin-right: 7rem;
   margin-top: 2.125rem;
 
-  cursor: none;
+  cursor: pointer;
 
   &:hover ${MenuLinkLine2} {
     animation-name: ${hamburgerAnimation};
@@ -195,14 +219,41 @@ const HamburgerWrap = styled.a`
     animation-iteration-count: 1;
     animation-fill-mode: both;
   }
+
+  @media ${maxdevice.laptop} {
+    margin-right: 5rem;
+  }
+  @media ${maxdevice.mobileL} {
+    margin-right: 2.98125rem;
+  }
+  @media ${maxdevice.mobileM} {
+    &:hover ${MenuLinkLine2} {
+      animation: none;
+    }
+  }
 `;
 
-const Spaceholder = styled.h1`
+const Spaceholder = styled.a`
+  display: flex;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   -webkit-text-fill-color: transparent;
   -webkit-user-select: none;
-  cursor: default;
-  margin-left: 7rem;
-  margin-top: 2.125rem;
+  cursor: none;
+  padding-left: 7rem;
+  padding-top: 2.125rem;
+
+  @media ${maxdevice.laptop} {
+    padding-left: 5rem;
+  }
+  @media ${maxdevice.tablet} {
+    display: none;
+  }
+  @media ${maxdevice.mobileL} {
+    display: none;
+  }
 `;
 
 const Menu = styled.div`
@@ -247,7 +298,7 @@ const MenuItems = styled.a`
   -webkit-text-stroke: 0.5px #ececec;
   text-align: center;
 
-  cursor: none;
+  cursor: pointer;
 
   margin-top: 2rem;
 
@@ -275,6 +326,22 @@ const MenuItems = styled.a`
   &:hover:before {
     max-width: 100%;
   }
+
+  @media ${maxdevice.laptopL} {
+    font-size: 7rem;
+  }
+  @media ${maxdevice.tablet} {
+    font-size: 4rem;
+  }
+  @media ${maxdevice.mobileL} {
+    font-size: 3rem;
+  }
+  @media ${maxdevice.mobileM} {
+    font-size: 2.5rem;
+  }
+  @media ${maxdevice.mobileS} {
+    font-size: 2rem;
+  }
 `;
 
 const MenuSideWrapper = styled.div`
@@ -295,4 +362,9 @@ const MenuSideNumber = styled.span`
 
   text-align: center;
   transform: rotate(-90deg);
+
+  @media ${maxdevice.laptopL} {
+    font-size: 2rem;
+    margin-top: 2rem;
+  }
 `;

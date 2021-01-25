@@ -13,15 +13,15 @@ const GlobalStyle = createGlobalStyle`
     }
     
     body {
+
         padding: 0;
-        margin: 0 auto;
+        margin: 0;
         color: #ececec;
         background: #14141c;
         font-family: 'Poppins', sans-serif;
-        overflow-x:hidden;
+        
         height: 100%;
-
-        cursor: none;
+      
 
      h1,h2,h3,h4,h5 {
          margin: 0;

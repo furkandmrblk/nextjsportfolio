@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { gsap, Power3 } from 'gsap';
 
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
+import { maxdevice } from '../theme/mediaQueries';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
@@ -18,7 +19,6 @@ export default function Projects() {
       document.body.style.overflow = 'hidden';
     }
   };
-
   const closeModal2 = () => {
     setClose2(!close2);
 
@@ -61,87 +61,128 @@ export default function Projects() {
   return (
     <ProjectsWrapper id="projects">
       <ProjectTitle ref={(el) => (projectTitle = el)}>projects</ProjectTitle>
-      <ProjectNumbers ref={(el) => (projectNumber = el)}>00</ProjectNumbers>
-      <Modal close={close}>
-        <CloseModal onClick={closeModal} />
-        <ModalContent>
-          <ModalTitle>frkn</ModalTitle>
-          <ModalNumber>00</ModalNumber>
-          <ModalDescription>
-            This was my first ever project that I created myself.
-            <br /> It’s also my first ever portfolio. <br />
-            I built this project with React.js and styled it with
-            styled-components. <br />
-          </ModalDescription>
-          <ModalHrefs
-            target="_blank"
-            href="https://github.com/furkandmrblk/myportfolio"
+      <Wrapper>
+        <ProjectNumbers ref={(el) => (projectNumber = el)}>00</ProjectNumbers>
+        <Modal close={close}>
+          <CloseModal onClick={closeModal} />
+          <ModalContent>
+            <ModalTitle>frkn</ModalTitle>
+            <ModalNumber>00</ModalNumber>
+            <ModalDescriptionWrapper>
+              <ModalDescription>
+                This is my first project that I created all by myself. <br />
+                It is also my first ever portfolio that I designed and
+                published. <br />
+                <br />
+                The entire design was done by me in{' '}
+                <span style={{ color: '#F9A826' }}>Figma</span>.
+                <br />
+                Afterwards I built this project with{' '}
+                <span style={{ color: '#61DBFB' }}>React.js</span> & I used
+                <span style={{ color: '#F54291' }}> styled-components</span>.
+              </ModalDescription>
+              <ModalHrefs
+                target="_blank"
+                href="https://furkandmrblk.netlify.app/"
+              >
+                Visit The{' '}
+                <span style={{ color: '#28DF99', textDecoration: 'underline' }}>
+                  Live Website
+                </span>
+                !
+              </ModalHrefs>
+              <ModalHrefs
+                target="_blank"
+                href="https://github.com/furkandmrblk/myportfolio"
+              >
+                Visit The{' '}
+                <span style={{ color: '#28DF99', textDecoration: 'underline' }}>
+                  GitHub Repository
+                </span>
+                !
+              </ModalHrefs>
+            </ModalDescriptionWrapper>
+            <ModalProject src="/portfolio0.png" />
+            <ModalProject src="/aboutportfolio.png" />
+          </ModalContent>
+        </Modal>
+        <IndividualWrapper id="projectzero">
+          <Project
+            id="00"
+            data-text="frkn"
+            ref={(el) => (project0 = el)}
+            onClick={closeModal}
           >
-            GitHub Repository
-          </ModalHrefs>
-          <ModalHrefs target="_blank" href="https://furkandmrblk.netlify.app/">
-            Live Website
-          </ModalHrefs>
-          <ModalProject src="/portfolio0.png" alt="portfolio" />
-          <ModalProject src="/aboutportfolio.png" alt="aboutpage" />
-        </ModalContent>
-      </Modal>
-      <IndividualWrapper id="projectzero">
-        <Project
-          id="00"
-          data-text="frkn"
-          ref={(el) => (project0 = el)}
-          onClick={closeModal}
-        >
-          frkn
-        </Project>
-      </IndividualWrapper>
-      <ProjectNumbers ref={(el) => (projectNumber2 = el)}>01</ProjectNumbers>
-      <Modal2 close2={close2}>
-        <CloseModal onClick={closeModal2} />
-        <ModalContent>
-          <ModalTitle>makimaki</ModalTitle>
-          <ModalNumber>01</ModalNumber>
-          <ModalDescription>
-            This is a template for an asian restaurant. <br /> For this project
-            I used React.js and SCSS for the styling. <br />
-          </ModalDescription>
-          <ModalHrefs
-            target="_blank"
-            href="https://github.com/furkandmrblk/myportfolio"
+            frkn
+          </Project>
+        </IndividualWrapper>
+        <ProjectNumbers ref={(el) => (projectNumber2 = el)}>01</ProjectNumbers>
+        <Modal2 close2={close2}>
+          <CloseModal onClick={closeModal2} />
+          <ModalContent>
+            <ModalTitle>makimaki</ModalTitle>
+            <ModalNumber>01</ModalNumber>
+            <ModalDescriptionWrapper>
+              <ModalDescription>
+                This is a template for an asian restaurant. <br /> For this
+                project I used{' '}
+                <span style={{ color: '#61DBFB' }}>React.js</span> and{' '}
+                <span style={{ color: '#F54291' }}> SCSS</span> for the styling.{' '}
+                <br />
+              </ModalDescription>
+              <ModalHrefs target="_blank" href="https://makimaki.netlify.app/">
+                Visit The{' '}
+                <span style={{ color: '#28DF99', textDecoration: 'underline' }}>
+                  Live Website
+                </span>
+                !
+              </ModalHrefs>
+              <ModalHrefs
+                target="_blank"
+                href="https://github.com/furkandmrblk/makimaki"
+              >
+                Visit The{' '}
+                <span style={{ color: '#28DF99', textDecoration: 'underline' }}>
+                  GitHub Repository
+                </span>
+                !
+              </ModalHrefs>
+            </ModalDescriptionWrapper>
+            <ModalProject src="/makimakifull.png" alt="makimaki" />
+            <ModalProject src="/makimakimenü.png" alt="makimakimenü" />
+          </ModalContent>
+        </Modal2>
+        <IndividualWrapper id="projectone">
+          <Project
+            data-text="makimaki"
+            ref={(el) => (project1 = el)}
+            onClick={closeModal2}
           >
-            GitHub Repository
-          </ModalHrefs>
-          <ModalHrefs target="_blank" href="https://furkandmrblk.netlify.app/">
-            Live Website
-          </ModalHrefs>
-          <ModalProject src="/makimakifull.png" alt="makimaki" />
-          <ModalProject src="/makimakimenü.png" alt="makimakimenü" />
-        </ModalContent>
-      </Modal2>
-      <IndividualWrapper id="projectone">
-        <Project
-          data-text="makimaki"
-          ref={(el) => (project1 = el)}
-          onClick={closeModal2}
-        >
-          makimaki
+            makimaki
+          </Project>
+        </IndividualWrapper>
+        <ProjectNumbers ref={(el) => (projectNumber3 = el)}>02</ProjectNumbers>
+        <Project data-text="coming soon ..." ref={(el) => (project2 = el)}>
+          coming soon ...
         </Project>
-      </IndividualWrapper>
-      <ProjectNumbers ref={(el) => (projectNumber3 = el)}>02</ProjectNumbers>
-      <Project data-text="coming soon ..." ref={(el) => (project2 = el)}>
-        coming soon ...
-      </Project>
+      </Wrapper>
     </ProjectsWrapper>
   );
 }
 
-const ProjectsWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 7.25rem;
 
+  @media ${maxdevice.mobileM} {
+    margin-top: 5rem;
+  }
+`;
+
+const ProjectsWrapper = styled.div`
   margin-top: 23.4375rem;
 `;
 
@@ -160,11 +201,36 @@ const ProjectTitle = styled.h1`
 
   margin-right: 40.5rem;
 
+  cursor: default;
+
   opacity: 0.7;
   transition: all 250ms ease-in-out;
 
   &:hover {
     opacity: 1;
+  }
+
+  @media ${maxdevice.desktopL} {
+    font-size: 9.9rem;
+  }
+
+  @media ${maxdevice.laptopL} {
+    font-size: 7.3rem;
+  }
+  @media ${maxdevice.laptopS} {
+    font-size: 6rem;
+    margin-right: 30rem;
+  }
+  @media ${maxdevice.laptop} {
+    margin-right: 15rem;
+  }
+  @media ${maxdevice.tablet} {
+    font-size: 3.5rem;
+    margin-right: 0;
+    text-align: center;
+  }
+  @media ${maxdevice.mobileM} {
+    font-size: 3rem;
   }
 `;
 
@@ -175,6 +241,19 @@ const ProjectNumbers = styled.h1`
 
   color: transparent;
   -webkit-text-stroke: 1px #8d89ff;
+
+  @media ${maxdevice.desktopL} {
+    font-size: 5rem;
+  }
+  @media ${maxdevice.laptopL} {
+    font-size: 4rem;
+  }
+  @media ${maxdevice.laptopS} {
+    font-size: 2.4rem;
+  }
+  @media ${maxdevice.tablet} {
+    font-size: 2rem;
+  }
 `;
 
 const Project = styled.a`
@@ -183,6 +262,8 @@ const Project = styled.a`
 
   position: relative;
   display: inline-flex;
+
+  cursor: none;
 
   color: transparent;
   -webkit-text-stroke: 1px #ececec;
@@ -203,8 +284,43 @@ const Project = styled.a`
   &:hover:before {
     max-width: 100%;
   }
-`;
 
+  @media ${maxdevice.desktopL} {
+    font-size: 7.3rem;
+  }
+  @media ${maxdevice.laptopL} {
+    font-size: 6.5rem;
+  }
+  @media ${maxdevice.laptopS} {
+    -webkit-text-stroke: 0.5px #ececec;
+    font-size: 4rem;
+  }
+  @media ${maxdevice.tablet} {
+    font-size: 3rem;
+  }
+  @media ${maxdevice.mobileL} {
+    font-size: 2.38rem;
+  }
+  @media ${maxdevice.mobileM} {
+    text-align: center;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      content: attr(data-text);
+      transition: max-width 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+      -webkit-text-fill-color: #ececec;
+      max-width: 0;
+    }
+
+    &:hover:before {
+      max-width: 0;
+    }
+  }
+`;
 const Modal = styled.div`
   z-index: 1300;
 
@@ -215,15 +331,28 @@ const Modal = styled.div`
 
   height: 758px;
   max-height: 100%;
-
-  width: 1107px;
+  width: 1200px;
   max-width: 100%;
 
   background-color: #1c1c2b;
+  border-radius: 5px;
 
   margin-top: 2rem;
 
   display: ${({ close }) => (close ? 'visible' : 'none')};
+
+  @media ${maxdevice.laptopL} {
+    height: 583px;
+    width: 923px;
+  }
+  @media ${maxdevice.laptop} {
+    height: 448px;
+    width: 710px;
+  }
+  @media ${maxdevice.mobileL} {
+    height: 450px;
+    width: 280px;
+  }
 `;
 
 const Modal2 = styled.div`
@@ -236,15 +365,29 @@ const Modal2 = styled.div`
 
   height: 758px;
   max-height: 100%;
-
-  width: 1107px;
+  width: 1200px;
   max-width: 100%;
 
   background-color: #1c1c2b;
+  border-radius: 5px;
 
   margin-top: 2rem;
 
   display: ${({ close2 }) => (close2 ? 'visible' : 'none')};
+
+  @media ${maxdevice.laptopL} {
+    height: 583px;
+    width: 923px;
+  }
+  @media ${maxdevice.laptop} {
+    height: 448px;
+    width: 710px;
+  }
+
+  @media ${maxdevice.mobileL} {
+    height: 450px;
+    width: 280px;
+  }
 `;
 
 const ModalContent = styled.div`
@@ -279,41 +422,92 @@ const CloseModal = styled.div`
   width: 20px;
 
   margin-top: 1.5rem;
-  margin-left: 65.5rem;
+  margin-left: 70.5rem;
+
+  @media ${maxdevice.laptopL} {
+    margin-left: 54rem;
+  }
+  @media ${maxdevice.laptop} {
+    margin-left: 41rem;
+  }
+  @media ${maxdevice.mobileL} {
+    margin-left: 15rem;
+  }
 `;
 
 const ModalTitle = styled.h1`
   font-family: 'Racing Sans One', cursive;
   font-weight: 300;
   font-size: 65px;
+
+  @media ${maxdevice.mobileL} {
+    font-size: 30px;
+  }
 `;
 
 const ModalNumber = styled.h1`
   font-family: 'Racing Sans One', cursive;
   font-weight: 300;
   font-size: 30px;
+
+  @media ${maxdevice.mobileL} {
+    font-size: 20px;
+  }
+`;
+
+const ModalDescriptionWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  width: 53rem;
+
+  @media ${maxdevice.mobileL} {
+    width: 100%;
+  }
 `;
 
 const ModalDescription = styled.h1`
-  font-size: 20px;
-  font-weight: 300;
-  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 200;
 
   max-width: 830px;
 
   margin-top: 3rem;
+
+  @media ${maxdevice.laptop} {
+    text-align: center;
+    font-size: 1rem;
+
+    max-width: 100%;
+  }
+
+  @media ${maxdevice.mobileL} {
+    font-size: 0.8rem;
+  }
 `;
 
 const ModalHrefs = styled.a`
-  color: #2c9487;
+  font-size: 1.2rem;
+  font-weight: 200;
 
-  font-size: 20px;
-  font-weight: 300;
-  text-align: center;
+  text-decoration: none;
+  color: #ececec;
+  cursor: default;
 
   margin-top: 1.5rem;
 
-  cursor: none;
+  @media ${maxdevice.laptop} {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  @media ${maxdevice.mobileL} {
+    font-size: 0.8rem;
+
+    max-width: 100%;
+  }
 `;
 
 const ModalProject = styled.img`
@@ -322,4 +516,11 @@ const ModalProject = styled.img`
   object-fit: contain;
 
   margin-top: 3rem;
+
+  @media ${maxdevice.laptop} {
+    width: 570px;
+  }
+  @media ${maxdevice.mobileL} {
+    width: 100%;
+  }
 `;

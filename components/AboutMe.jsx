@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { maxdevice } from '../theme/mediaQueries';
 
 export default function AboutMe() {
   return (
@@ -16,7 +17,7 @@ export default function AboutMe() {
       <AboutParagraph2>
         At the end of 2020 I quickly realized that I have <br />a passion for
         web development & web design.
-        <br /> I am a self thaught web developer & I like to create my own
+        <br /> I am a self-taught web developer & I like to create my own
         designs.
       </AboutParagraph2>
       <AboutParagraph3>
@@ -45,8 +46,10 @@ const AboutWrapper = styled.div`
 
 const AboutTitle = styled.h1`
   font-family: 'Poppins', sans-serif;
-  font-size: 12.5rem;
+  font-size: 11rem;
   font-weight: 900;
+
+  cursor: default;
 
   color: transparent;
   -webkit-text-stroke: 1px#8d89ff;
@@ -59,6 +62,21 @@ const AboutTitle = styled.h1`
   &:hover {
     opacity: 1;
   }
+
+  @media ${maxdevice.desktopL} {
+    margin-right: 11rem;
+    font-size: 10rem;
+  }
+  @media ${maxdevice.laptopS} {
+    margin-right: 0rem;
+    font-size: 8rem;
+  }
+  @media ${maxdevice.tablet} {
+    font-size: 7rem;
+  }
+  @media ${maxdevice.mobileL} {
+    font-size: 2.4rem;
+  }
 `;
 
 const AboutParagraph = styled.h1`
@@ -68,6 +86,11 @@ const AboutParagraph = styled.h1`
 
   max-width: 29.625rem;
   margin-top: 10.625rem;
+
+  @media ${maxdevice.mobileL} {
+    margin-top: 5.625rem;
+    font-size: 1rem;
+  }
 `;
 
 const AboutParagraph2 = styled.h1`
@@ -77,6 +100,10 @@ const AboutParagraph2 = styled.h1`
 
   max-width: 29.625rem;
   margin-top: 2.5rem;
+
+  @media ${maxdevice.mobileL} {
+    font-size: 1rem;
+  }
 `;
 const AboutParagraph3 = styled.h1`
   font-size: 1.25rem;
@@ -85,6 +112,10 @@ const AboutParagraph3 = styled.h1`
 
   max-width: 29.625rem;
   margin-top: 2.5rem;
+
+  @media ${maxdevice.mobileL} {
+    font-size: 1rem;
+  }
 `;
 
 const LogoWrapper = styled.div`
@@ -107,7 +138,7 @@ const LinkedIn = styled.a`
   height: 2.75rem;
   width: 2.6875rem;
 
-  cursor: none;
+  cursor: pointer;
 `;
 
 const GitHub = styled.a`
@@ -118,5 +149,5 @@ const GitHub = styled.a`
   height: 2.734375rem;
   width: 2.6875rem;
 
-  cursor: none;
+  cursor: pointer;
 `;

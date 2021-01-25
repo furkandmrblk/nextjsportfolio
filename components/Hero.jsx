@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { maxdevice } from '../theme/mediaQueries';
 import { TweenMax, Power3, Power2 } from 'gsap';
 
 export default function Hero() {
@@ -52,17 +53,17 @@ export default function Hero() {
     <>
       <HeroWrapper>
         <SphereWrapper>
-          <Sphere
+          <Sphere1
             ref={(el) => (circlePurple = el)}
             style={{ backgroundColor: '#5B56F4' }}
           />
-          <Sphere
+          <Sphere2
             ref={(el) => (circleWhite = el)}
-            style={{ backgroundColor: '#fff', marginTop: '7rem' }}
+            style={{ backgroundColor: '#fff' }}
           />
-          <Sphere
+          <Sphere3
             ref={(el) => (circleGreen = el)}
-            style={{ backgroundColor: '#2C9487', marginTop: '14rem' }}
+            style={{ backgroundColor: '#2C9487' }}
           />
         </SphereWrapper>
         <HeroTextWrapper>
@@ -116,6 +117,10 @@ const SubHeroWrapper = styled.div`
   justify-content: center;
 
   margin-top: 8rem;
+
+  @media ${maxdevice.tablet} {
+    margin-top: 5rem;
+  }
 `;
 const SubHeroWrapper2 = styled.div`
   display: flex;
@@ -124,6 +129,19 @@ const SubHeroWrapper2 = styled.div`
   justify-content: center;
 
   margin-top: -3.5rem;
+
+  @media ${maxdevice.laptopL} {
+    margin-top: -2.9rem;
+  }
+  @media ${maxdevice.laptopS} {
+    margin-top: -2.4rem;
+  }
+  @media ${maxdevice.laptop} {
+    margin-top: -1.8rem;
+  }
+  @media ${maxdevice.laptop} {
+    margin-top: 0rem;
+  }
 `;
 
 const HeroWrapper = styled.div`
@@ -136,6 +154,14 @@ const HeroWrapper = styled.div`
 
   margin-top: 9.5rem;
   margin-right: 40.5rem;
+
+  @media ${maxdevice.laptopS} {
+    margin-right: 20rem;
+  }
+  @media ${maxdevice.tablet} {
+    margin-top: 4rem;
+    margin-right: 0rem;
+  }
 `;
 
 const SphereWrapper = styled.div`
@@ -144,15 +170,131 @@ const SphereWrapper = styled.div`
   align-items: center;
   height: 250px;
   width: 195px;
+
+  @media ${maxdevice.tablet} {
+    width: 100px;
+  }
 `;
 
-const Sphere = styled.div`
+const Sphere1 = styled.div`
   position: absolute;
   display: block;
   height: 6.975rem;
   width: 6.975rem;
 
   border-radius: 50%;
+
+  @media ${maxdevice.desktopL} {
+    height: 6.4rem;
+    width: 6.4rem;
+  }
+
+  @media ${maxdevice.laptopL} {
+    height: 5rem;
+    width: 5rem;
+  }
+  @media ${maxdevice.laptop} {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+  @media ${maxdevice.tablet} {
+    height: 4rem;
+    width: 4rem;
+  }
+  @media ${maxdevice.mobileL} {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+  @media ${maxdevice.mobileM} {
+    height: 3rem;
+    width: 3rem;
+  }
+`;
+
+const Sphere2 = styled.div`
+  position: absolute;
+  display: block;
+  height: 6.975rem;
+  width: 6.975rem;
+
+  border-radius: 50%;
+
+  margin-top: 7rem;
+
+  @media ${maxdevice.desktopL} {
+    height: 6.4rem;
+    width: 6.4rem;
+  }
+
+  @media ${maxdevice.laptopL} {
+    height: 5rem;
+    width: 5rem;
+
+    margin-top: 5.5rem;
+  }
+  @media ${maxdevice.laptop} {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+  @media ${maxdevice.tablet} {
+    height: 4rem;
+    width: 4rem;
+  }
+  @media ${maxdevice.mobileL} {
+    height: 3.5rem;
+    width: 3.5rem;
+
+    margin-top: 5rem;
+  }
+  @media ${maxdevice.mobileM} {
+    height: 3rem;
+    width: 3rem;
+
+    margin-top: 4.3rem;
+  }
+`;
+
+const Sphere3 = styled.div`
+  position: absolute;
+  display: block;
+  height: 6.975rem;
+  width: 6.975rem;
+
+  border-radius: 50%;
+
+  margin-top: 14rem;
+
+  @media ${maxdevice.desktopL} {
+    height: 6.4rem;
+    width: 6.4rem;
+  }
+
+  @media ${maxdevice.laptopL} {
+    height: 5rem;
+    width: 5rem;
+
+    margin-top: 11rem;
+  }
+  @media ${maxdevice.laptop} {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+  @media ${maxdevice.tablet} {
+    height: 4rem;
+    width: 4rem;
+  }
+  @media ${maxdevice.mobileL} {
+    height: 3.5rem;
+    width: 3.5rem;
+
+    margin-top: 10rem;
+  }
+  @media ${maxdevice.mobileM} {
+    height: 3rem;
+    width: 3rem;
+
+    margin-top: 8.6rem;
+  }
 `;
 
 const HeroTextWrapper = styled.div`
@@ -170,6 +312,33 @@ const HeroText = styled.h1`
   margin-bottom: 4.5rem;
 
   opacity: 0;
+
+  @media ${maxdevice.desktopL} {
+    font-size: 1.7115rem;
+
+    max-width: 33.4375rem;
+  }
+
+  @media ${maxdevice.laptopL} {
+    font-size: 1.19rem;
+
+    margin-bottom: 4rem;
+  }
+  @media ${maxdevice.laptopS} {
+    font-size: 1.19rem;
+  }
+  @media ${maxdevice.laptop} {
+    font-size: 0.9rem;
+    max-width: 17rem;
+
+    margin-bottom: 3rem;
+  }
+  @media ${maxdevice.mobileL} {
+    margin-bottom: 2.4rem;
+  }
+  @media ${maxdevice.mobileM} {
+    font-size: 0.8rem;
+  }
 `;
 
 const HeroButton = styled.a`
@@ -183,7 +352,7 @@ const HeroButton = styled.a`
   font-size: 1.2rem;
   font-weight: 500;
 
-  cursor: none;
+  cursor: pointer;
 
   margin-bottom: -1.2rem;
 
@@ -193,6 +362,35 @@ const HeroButton = styled.a`
 
   &:hover {
     background-color: #22796f;
+  }
+
+  @media ${maxdevice.desktopL} {
+    padding: 0.8375rem 2.475rem;
+    font-size: 1rem;
+  }
+
+  @media ${maxdevice.laptopL} {
+    padding: 0.8375rem 2.475rem;
+    font-size: 0.8rem;
+
+    margin-bottom: -0.3rem;
+  }
+  @media ${maxdevice.laptop} {
+    padding: 0.7175rem 1.975rem;
+    font-size: 0.7rem;
+  }
+  @media ${maxdevice.tablet} {
+    padding: 0.7175rem 1.975rem;
+    font-size: 0.7rem;
+  }
+  @media ${maxdevice.mobileL} {
+    padding: 0.4175rem 1.875rem;
+    font-size: 0.7rem;
+  }
+  @media ${maxdevice.mobileM} {
+    padding: 0.3175rem 1.675rem;
+    font-size: 0.6rem;
+    margin-bottom: 0.9rem;
   }
 `;
 
@@ -222,6 +420,30 @@ const SubHeroLine1 = styled.h1`
   &:hover:before {
     max-width: 100%;
   }
+
+  @media ${maxdevice.desktopL} {
+    font-size: 6.32rem;
+  }
+  @media ${maxdevice.laptopL} {
+    font-size: 5.1rem;
+    -webkit-text-stroke: 1.5px #2c9487;
+  }
+  @media ${maxdevice.laptopS} {
+    font-size: 4.1rem;
+  }
+  @media ${maxdevice.laptop} {
+    font-size: 3.4rem;
+  }
+  @media ${maxdevice.tablet} {
+    -webkit-text-stroke: 1px #2c9487;
+    font-size: 1.63rem;
+  }
+  @media ${maxdevice.mobileL} {
+    font-size: 1.366rem;
+  }
+  @media ${maxdevice.mobileM} {
+    font-size: 1.09rem;
+  }
 `;
 const SubHeroLine2 = styled.h1`
   position: relative;
@@ -248,5 +470,29 @@ const SubHeroLine2 = styled.h1`
 
   &:hover:before {
     max-width: 100%;
+  }
+
+  @media ${maxdevice.desktopL} {
+    font-size: 6.32rem;
+  }
+  @media ${maxdevice.laptopL} {
+    font-size: 5.1rem;
+    -webkit-text-stroke: 1.5px #5b56f4;
+  }
+  @media ${maxdevice.laptopS} {
+    font-size: 4.1rem;
+  }
+  @media ${maxdevice.laptop} {
+    font-size: 3.4rem;
+  }
+  @media ${maxdevice.tablet} {
+    -webkit-text-stroke: 1px #5b56f4;
+    font-size: 1.63rem;
+  }
+  @media ${maxdevice.mobileL} {
+    font-size: 1.366rem;
+  }
+  @media ${maxdevice.mobileM} {
+    font-size: 1.09rem;
   }
 `;
