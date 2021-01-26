@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import { maxdevice } from '../theme/mediaQueries';
 import { gsap, Power3 } from 'gsap';
@@ -6,6 +7,63 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger.js';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
+  const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: null },
+  });
+  const [inputs, setInputs] = useState({
+    email: '',
+    message: '',
+  });
+  const handleServerResponse = (ok, msg) => {
+    if (ok) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg },
+      });
+      setInputs({
+        email: '',
+        message: '',
+      });
+    } else {
+      setStatus({
+        info: { error: true, msg: msg },
+      });
+    }
+  };
+  const handleOnChange = (e) => {
+    e.persist();
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: false, msg: null },
+    });
+  };
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
+    axios({
+      method: 'POST',
+      url: 'https://formspree.io/https://formspree.io/f/mvovllbq',
+      data: inputs,
+    })
+      .then((response) => {
+        handleServerResponse(
+          true,
+          'Thank you, your message has been submitted.'
+        );
+      })
+      .catch((error) => {
+        handleServerResponse(false, error.response.data.error);
+      });
+  };
+
   let contactTitle = useRef(null);
 
   useEffect(() => {
@@ -23,14 +81,38 @@ export default function Contact() {
       <ContactSubtitle ref={(el) => (contactTitle = el)}>
         Interested? Contact Me!
       </ContactSubtitle>
-      <ContactFormWrapper>
+      <ContactFormWrapper onSubmit={handleOnSubmit}>
         <ContactForm>
-          <EmailForm placeholder="e-mail" />
+          <EmailForm
+            id="email"
+            type="email"
+            name="_replyto"
+            onChange={handleOnChange}
+            required
+            value={inputs.email}
+            placeholder="e-mail"
+          />
           <NameForm placeholder="name" />
-          <FormButton>send</FormButton>
+          <FormButton type="submit" disabled={status.submitting}>
+            {!status.submitting
+              ? !status.submitted
+                ? 'submit'
+                : 'submitted'
+              : 'submitting...'}
+          </FormButton>
         </ContactForm>
-        <ContactFormArea />
+        <ContactFormArea
+          id="message"
+          name="message"
+          onChange={handleOnChange}
+          required
+          value={inputs.message}
+        />
       </ContactFormWrapper>
+      {status.info.error && (
+        <div className="error">Error: {status.info.msg}</div>
+      )}
+      {!status.info.error && status.info.msg && <p>{status.info.msg}</p>}
     </ContactWrapper>
   );
 }
@@ -202,7 +284,7 @@ const NameForm = styled.input`
 `;
 
 const FormButton = styled.button`
-  padding: 0.8625rem 5.625rem;
+  padding: 0.8625rem 7.7rem;
 
   border: none;
   border-radius: 2px;
@@ -215,7 +297,6 @@ const FormButton = styled.button`
   cursor: pointer;
 
   margin-top: 2.5996875rem;
-  margin-left: 7.68rem;
 
   transition: all 250ms ease-in-out;
 
@@ -223,11 +304,8 @@ const FormButton = styled.button`
     background-color: #22796f;
   }
 
-  @media ${maxdevice.laptopS} {
-    margin-left: 4.68rem;
-  }
   @media ${maxdevice.tablet} {
-    padding: 0.5625rem 6.9rem;
+    padding: 0.5625rem 5.3rem;
 
     font-size: 1rem;
 
@@ -235,7 +313,7 @@ const FormButton = styled.button`
     margin-left: 0rem;
   }
   @media ${maxdevice.mobileM} {
-    padding: 0.5625rem 5.4rem;
+    padding: 0.5625rem 3.85rem;
   }
 `;
 
