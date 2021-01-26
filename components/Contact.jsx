@@ -52,7 +52,7 @@ export default function Contact() {
     setStatus((prevStatus) => ({ ...prevStatus, submitting: true }));
     axios({
       method: 'POST',
-      url: 'https://formspree.io/https://formspree.io/f/mvovllbq',
+      url: 'https://formspree.io/f/mvovllbq',
       data: inputs,
     })
       .then((response) => {
@@ -118,7 +118,7 @@ export default function Contact() {
           name="message"
           onChange={handleOnChange}
           required
-          value={inputs.message}
+          value={inputs.message}0
         />
       </ContactFormWrapper>
       {status.info.error && (
