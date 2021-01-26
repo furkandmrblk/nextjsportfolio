@@ -179,6 +179,9 @@ const HeroWrapper = styled.div`
     margin-top: 4rem;
     margin-right: 0rem;
   }
+  @media ${maxdevice.mobileL} {
+    justify-content: flex-start;
+  }
 `;
 
 const SphereWrapper = styled.div`
@@ -193,6 +196,9 @@ const SphereWrapper = styled.div`
   }
   @media ${maxdevice.desktopS} {
     margin-left: 0rem;
+  }
+  @media ${maxdevice.laptopL} {
+    margin-left: 2rem;
   }
   @media ${maxdevice.laptopS} {
     margin-left: -4rem;
@@ -350,10 +356,16 @@ const HeroText = styled.h1`
   @media ${maxdevice.mobileL} {
     font-size: 0.88rem;
 
+    margin-left: 2.7rem;
     margin-bottom: 3.3rem;
   }
   @media ${maxdevice.mobileM} {
     font-size: 0.7rem;
+
+    margin-left: 2.5rem;
+  }
+  @media ${maxdevice.mobileS} {
+    margin-left: 2rem;
   }
 `;
 
@@ -397,11 +409,18 @@ const HeroButton = styled.a`
   @media ${maxdevice.mobileL} {
     padding: 0.4175rem 1.875rem;
     font-size: 0.7rem;
+
+    margin-left: 2.7rem;
   }
   @media ${maxdevice.mobileM} {
     padding: 0.3175rem 1.675rem;
     font-size: 0.6rem;
+
     margin-bottom: 0.9rem;
+    margin-left: 2.5rem;
+  }
+  @media ${maxdevice.mobileS} {
+    margin-left: 2rem;
   }
 `;
 

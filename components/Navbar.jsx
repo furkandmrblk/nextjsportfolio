@@ -220,10 +220,13 @@ const HamburgerWrap = styled.a`
   }
 
   @media ${maxdevice.laptop} {
-    margin-right: 5rem;
+    margin-right: 7rem;
+  }
+  @media ${maxdevice.tablet} {
+    margin-right: 3rem;
   }
   @media ${maxdevice.mobileL} {
-    margin-right: 2.98125rem;
+    margin-right: 1px;
   }
   @media ${maxdevice.mobileM} {
     &:hover ${MenuLinkLine2} {
