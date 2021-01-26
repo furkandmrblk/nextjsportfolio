@@ -14,6 +14,7 @@ export default function Contact() {
   });
   const [inputs, setInputs] = useState({
     email: '',
+    name: '',
     message: '',
   });
   const handleServerResponse = (ok, msg) => {
@@ -25,6 +26,7 @@ export default function Contact() {
       });
       setInputs({
         email: '',
+        name: '',
         message: '',
       });
     } else {
@@ -83,6 +85,7 @@ export default function Contact() {
       </ContactSubtitle>
       <ContactFormWrapper onSubmit={handleOnSubmit}>
         <ContactForm>
+          <label htmlFor="email" />
           <EmailForm
             id="email"
             type="email"
@@ -92,7 +95,15 @@ export default function Contact() {
             value={inputs.email}
             placeholder="e-mail"
           />
-          <NameForm placeholder="name" />
+          <label htmlFor="name" />
+          <NameForm
+            id="name"
+            type="text"
+            onChange={handleOnChange}
+            required
+            value={inputs.name}
+            placeholder="name"
+          />
           <FormButton type="submit" disabled={status.submitting}>
             {!status.submitting
               ? !status.submitted
@@ -101,6 +112,7 @@ export default function Contact() {
               : 'submitting...'}
           </FormButton>
         </ContactForm>
+        <label htmlFor="message" />
         <ContactFormArea
           id="message"
           name="message"
@@ -313,7 +325,7 @@ const FormButton = styled.button`
     margin-left: 0rem;
   }
   @media ${maxdevice.mobileM} {
-    padding: 0.5625rem 3.85rem;
+    padding: 0.5625rem 3.8rem;
   }
 `;
 
