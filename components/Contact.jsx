@@ -118,7 +118,7 @@ export default function Contact() {
           name="message"
           onChange={handleOnChange}
           required
-          value={inputs.message}0
+          value={inputs.message}
         />
       </ContactFormWrapper>
       {status.info.error && (
