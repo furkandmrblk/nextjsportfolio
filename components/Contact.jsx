@@ -108,8 +108,8 @@ export default function Contact() {
             {!status.submitting
               ? !status.submitted
                 ? 'submit'
-                : 'submitted'
-              : 'submitting...'}
+                : 'submit'
+              : 'submit'}
           </FormButton>
         </ContactForm>
         <label htmlFor="message" />
@@ -296,7 +296,7 @@ const NameForm = styled.input`
 `;
 
 const FormButton = styled.button`
-  padding: 0.8625rem 7.7rem;
+  padding: 0.8625rem 9.1rem;
 
   border: none;
   border-radius: 2px;
@@ -316,8 +316,12 @@ const FormButton = styled.button`
     background-color: #22796f;
   }
 
+  @media ${maxdevice.laptopS} {
+    padding: 0.8625rem 7.6rem;
+  }
+
   @media ${maxdevice.tablet} {
-    padding: 0.5625rem 5.3rem;
+    padding: 0.5625rem 6.6rem;
 
     font-size: 1rem;
 
@@ -325,7 +329,7 @@ const FormButton = styled.button`
     margin-left: 0rem;
   }
   @media ${maxdevice.mobileM} {
-    padding: 0.5625rem 3.8rem;
+    padding: 0.5625rem 5rem;
   }
 `;
 
