@@ -29,7 +29,6 @@ export default function Projects() {
     }
   };
 
-  let projectTitle = useRef(null);
   let project0 = useRef(null);
   let project1 = useRef(null);
   let project2 = useRef(null);
@@ -42,25 +41,31 @@ export default function Projects() {
       opacity: 0,
       x: -150,
       ease: Power3.easeOut,
-      scrollTrigger: project0,
+      scrollTrigger: {
+        trigger: projectNumber,
+      },
     });
     gsap.from(projectNumber2, 2, {
       opacity: 0,
       x: 150,
       ease: Power3.easeOut,
-      scrollTrigger: project1,
+      scrollTrigger: {
+        trigger: projectNumber2,
+      },
     });
     gsap.from(projectNumber3, 2, {
       opacity: 0,
       x: -150,
       ease: Power3.easeOut,
-      scrollTrigger: project2,
+      scrollTrigger: {
+        trigger: projectNumber3,
+      },
     });
   });
 
   return (
     <ProjectsWrapper id="projects">
-      <ProjectTitle ref={(el) => (projectTitle = el)}>projects</ProjectTitle>
+      <ProjectTitle>projects</ProjectTitle>
       <Wrapper>
         <ProjectNumbers ref={(el) => (projectNumber = el)}>00</ProjectNumbers>
         <Modal close={close}>
@@ -81,24 +86,26 @@ export default function Projects() {
                 <span style={{ color: '#61DBFB' }}>React.js</span> & I used
                 <span style={{ color: '#F54291' }}> styled-components</span>.
               </ModalDescription>
-              <ModalHrefs
-                target="_blank"
-                href="https://furkandmrblk.netlify.app/"
-              >
+              <ModalHrefs>
                 Visit The{' '}
-                <span style={{ color: '#28DF99', textDecoration: 'underline' }}>
+                <a
+                  target="_blank"
+                  href="https://furkandmrblk.netlify.app/"
+                  style={{ color: '#28DF99', textDecoration: 'underline' }}
+                >
                   Live Website
-                </span>
+                </a>
                 !
               </ModalHrefs>
-              <ModalHrefs
-                target="_blank"
-                href="https://github.com/furkandmrblk/myportfolio"
-              >
+              <ModalHrefs>
                 Visit The{' '}
-                <span style={{ color: '#28DF99', textDecoration: 'underline' }}>
+                <a
+                  target="_blank"
+                  href="https://github.com/furkandmrblk/myportfolio"
+                  style={{ color: '#28DF99', textDecoration: 'underline' }}
+                >
                   GitHub Repository
-                </span>
+                </a>
                 !
               </ModalHrefs>
             </ModalDescriptionWrapper>
@@ -130,21 +137,26 @@ export default function Projects() {
                 <span style={{ color: '#F54291' }}> SCSS</span> for the styling.{' '}
                 <br />
               </ModalDescription>
-              <ModalHrefs target="_blank" href="https://makimaki.netlify.app/">
+              <ModalHrefs>
                 Visit The{' '}
-                <span style={{ color: '#28DF99', textDecoration: 'underline' }}>
+                <a
+                  target="_blank"
+                  href="https://makimaki.netlify.app/"
+                  style={{ color: '#28DF99', textDecoration: 'underline' }}
+                >
                   Live Website
-                </span>
+                </a>
                 !
               </ModalHrefs>
-              <ModalHrefs
-                target="_blank"
-                href="https://github.com/furkandmrblk/makimaki"
-              >
+              <ModalHrefs>
                 Visit The{' '}
-                <span style={{ color: '#28DF99', textDecoration: 'underline' }}>
+                <a
+                  target="_blank"
+                  href="https://github.com/furkandmrblk/makimaki"
+                  style={{ color: '#28DF99', textDecoration: 'underline' }}
+                >
                   GitHub Repository
-                </span>
+                </a>
                 !
               </ModalHrefs>
             </ModalDescriptionWrapper>
@@ -488,13 +500,12 @@ const ModalDescription = styled.h1`
   }
 `;
 
-const ModalHrefs = styled.a`
+const ModalHrefs = styled.h1`
   font-size: 1.2rem;
   font-weight: 200;
 
   text-decoration: none;
   color: #ececec;
-  cursor: pointer;
 
   margin-top: 1.5rem;
 
