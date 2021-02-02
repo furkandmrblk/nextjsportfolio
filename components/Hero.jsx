@@ -180,7 +180,7 @@ const HeroWrapper = styled.div`
     margin-right: 0rem;
   }
   @media ${maxdevice.mobileL} {
-    justify-content: flex-start;
+    text-align: center;
   }
 `;
 
@@ -354,18 +354,12 @@ const HeroText = styled.h1`
     margin-bottom: 4rem;
   }
   @media ${maxdevice.mobileL} {
-    font-size: 0.88rem;
-
-    margin-left: 2.7rem;
-    margin-bottom: 3.3rem;
+    font-size: 1.2rem;
   }
   @media ${maxdevice.mobileM} {
-    font-size: 0.7rem;
-
-    margin-left: 2.5rem;
+    font-size: 1rem;
   }
   @media ${maxdevice.mobileS} {
-    margin-left: 2rem;
   }
 `;
 
@@ -407,20 +401,15 @@ const HeroButton = styled.a`
     font-size: 0.7rem;
   }
   @media ${maxdevice.mobileL} {
-    padding: 0.4175rem 1.875rem;
     font-size: 0.7rem;
 
-    margin-left: 2.7rem;
+    justify-self: center;
+    align-self: center;
   }
   @media ${maxdevice.mobileM} {
-    padding: 0.3175rem 1.675rem;
     font-size: 0.6rem;
-
-    margin-bottom: 0.9rem;
-    margin-left: 2.5rem;
   }
   @media ${maxdevice.mobileS} {
-    margin-left: 2rem;
   }
 `;
 

@@ -14,7 +14,9 @@ export default function Footer() {
         href="https://www.linkedin.com/in/ibrahim-furkan-demirbilek-a6a0421b6/"
       />
       <GitHub target="_blank" href="https://github.com/furkandmrblk" />
-      <FooterCopyright>© 2021 - furkandmrblk</FooterCopyright>
+      <FooterCopyright>
+        © 2021 - furkandmrblk | Built with Next.js
+      </FooterCopyright>
     </FooterWrapper>
   );
 }
