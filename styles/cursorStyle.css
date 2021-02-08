@@ -36,10 +36,11 @@
   height: 310px;
   border-radius: 2px;
 
-  background-image: url('/frkn.PNG');
+  background-image: url('/maki.PNG');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  object-fit: contain;
 
   animation: showProjectOnHover 550ms forwards;
 
@@ -51,10 +52,11 @@
   height: 310px;
   border-radius: 2px;
 
-  background-image: url('/maki.PNG');
+  background-image: url('/freshfood.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  object-fit: contain;
 
   animation: showProjectOnHover 550ms forwards;
 

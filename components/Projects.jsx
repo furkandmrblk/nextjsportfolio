@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { gsap, Power3 } from 'gsap';
 
@@ -7,28 +7,6 @@ import { maxdevice } from '../theme/mediaQueries';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
-  const [close, setClose] = useState(false);
-  const [close2, setClose2] = useState(false);
-
-  const closeModal = () => {
-    setClose(!close);
-
-    if (close === true) {
-      document.body.style.overflow = 'visible';
-    } else {
-      document.body.style.overflow = 'hidden';
-    }
-  };
-  const closeModal2 = () => {
-    setClose2(!close2);
-
-    if (close2 === true) {
-      document.body.style.overflow = 'visible';
-    } else {
-      document.body.style.overflow = 'hidden';
-    }
-  };
-
   let project0 = useRef(null);
   let project1 = useRef(null);
   let project2 = useRef(null);
@@ -68,109 +46,24 @@ export default function Projects() {
       <ProjectTitle>projects</ProjectTitle>
       <Wrapper>
         <ProjectNumbers ref={(el) => (projectNumber = el)}>00</ProjectNumbers>
-        <Modal close={close}>
-          <CloseModal onClick={closeModal} />
-          <ModalContent>
-            <ModalTitle>frkn</ModalTitle>
-            <ModalNumber>00</ModalNumber>
-            <ModalDescriptionWrapper>
-              <ModalDescription>
-                This is my first project that I created all by myself. <br />
-                It is also my first ever portfolio that I designed and
-                published. <br />
-                <br />
-                The entire design was done by me in{' '}
-                <span style={{ color: '#F9A826' }}>Figma</span>.
-                <br />
-                Afterwards I built this project with{' '}
-                <span style={{ color: '#61DBFB' }}>React.js</span> & I used
-                <span style={{ color: '#F54291' }}> styled-components</span>.
-              </ModalDescription>
-              <ModalHrefs>
-                Visit The{' '}
-                <a
-                  target="_blank"
-                  href="https://furkandmrblk.netlify.app/"
-                  style={{ color: '#28DF99', textDecoration: 'underline' }}
-                >
-                  Live Website
-                </a>
-                !
-              </ModalHrefs>
-              <ModalHrefs>
-                Visit The{' '}
-                <a
-                  target="_blank"
-                  href="https://github.com/furkandmrblk/myportfolio"
-                  style={{ color: '#28DF99', textDecoration: 'underline' }}
-                >
-                  GitHub Repository
-                </a>
-                !
-              </ModalHrefs>
-            </ModalDescriptionWrapper>
-            <ModalProject src="/portfolio0.png" />
-            <ModalProject src="/aboutportfolio.png" />
-          </ModalContent>
-        </Modal>
         <IndividualWrapper id="projectzero">
           <Project
             id="00"
-            data-text="frkn"
+            data-text="makimaki"
             ref={(el) => (project0 = el)}
-            onClick={closeModal}
+            href="/makimaki"
           >
-            frkn
+            makimaki
           </Project>
         </IndividualWrapper>
         <ProjectNumbers ref={(el) => (projectNumber2 = el)}>01</ProjectNumbers>
-        <Modal2 close2={close2}>
-          <CloseModal onClick={closeModal2} />
-          <ModalContent>
-            <ModalTitle>makimaki</ModalTitle>
-            <ModalNumber>01</ModalNumber>
-            <ModalDescriptionWrapper>
-              <ModalDescription>
-                This is a template for an asian restaurant. <br /> For this
-                project I used{' '}
-                <span style={{ color: '#61DBFB' }}>React.js</span> and{' '}
-                <span style={{ color: '#F54291' }}> SCSS</span> for the styling.{' '}
-                <br />
-              </ModalDescription>
-              <ModalHrefs>
-                Visit The{' '}
-                <a
-                  target="_blank"
-                  href="https://makimaki.netlify.app/"
-                  style={{ color: '#28DF99', textDecoration: 'underline' }}
-                >
-                  Live Website
-                </a>
-                !
-              </ModalHrefs>
-              <ModalHrefs>
-                Visit The{' '}
-                <a
-                  target="_blank"
-                  href="https://github.com/furkandmrblk/makimaki"
-                  style={{ color: '#28DF99', textDecoration: 'underline' }}
-                >
-                  GitHub Repository
-                </a>
-                !
-              </ModalHrefs>
-            </ModalDescriptionWrapper>
-            <ModalProject src="/makimakifull.png" alt="makimaki" />
-            <ModalProject src="/makimakimenü.png" alt="makimakimenü" />
-          </ModalContent>
-        </Modal2>
         <IndividualWrapper id="projectone">
           <Project
-            data-text="makimaki"
+            data-text="freshfood"
             ref={(el) => (project1 = el)}
-            onClick={closeModal2}
+            href="/freshfood"
           >
-            makimaki
+            freshfood
           </Project>
         </IndividualWrapper>
         <ProjectNumbers ref={(el) => (projectNumber3 = el)}>02</ProjectNumbers>

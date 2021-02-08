@@ -257,6 +257,7 @@ const EmailForm = styled.input`
     font-size: 1rem;
   }
   @media ${maxdevice.mobileM} {
+    order: 1;
     width: 13rem;
   }
 `;
@@ -291,6 +292,39 @@ const NameForm = styled.input`
     margin-top: 1.5rem;
   }
   @media ${maxdevice.mobileM} {
+    order: 2;
+    width: 13rem;
+  }
+`;
+
+const ContactFormArea = styled.textarea`
+  position: relative;
+  box-sizing: border-box;
+
+  height: 14.6375rem;
+  width: 28.75rem;
+  background: #14141c;
+  border: 1px solid #ececec;
+  resize: none;
+
+  color: #ececec;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+
+  margin-left: 1.0625rem;
+
+  @media ${maxdevice.laptopS} {
+    width: 21.75rem;
+  }
+  @media ${maxdevice.tablet} {
+    width: 16rem;
+
+    margin-top: 1.5rem;
+    margin-left: 0rem;
+  }
+  @media ${maxdevice.mobileM} {
+    order: 3;
     width: 13rem;
   }
 `;
@@ -329,37 +363,7 @@ const FormButton = styled.button`
     margin-left: 0rem;
   }
   @media ${maxdevice.mobileM} {
+    order: 4;
     padding: 0.5625rem 5rem;
-  }
-`;
-
-const ContactFormArea = styled.textarea`
-  position: relative;
-  box-sizing: border-box;
-
-  height: 14.6375rem;
-  width: 28.75rem;
-  background: #14141c;
-  border: 1px solid #ececec;
-  resize: none;
-
-  color: #ececec;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 1rem;
-
-  margin-left: 1.0625rem;
-
-  @media ${maxdevice.laptopS} {
-    width: 21.75rem;
-  }
-  @media ${maxdevice.tablet} {
-    width: 16rem;
-
-    margin-top: 1.5rem;
-    margin-left: 0rem;
-  }
-  @media ${maxdevice.mobileM} {
-    width: 13rem;
   }
 `;
