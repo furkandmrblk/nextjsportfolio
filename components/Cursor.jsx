@@ -59,6 +59,19 @@ export default function Cursor() {
       if (cursorRef.current == null) return;
       cursorRef.current.classList.remove('showProject1');
     });
+
+    var projectTwo = document.getElementById('projecttwo');
+
+    projectTwo.addEventListener('mouseenter', () => {
+      if (cursorRef.current == null) return;
+
+      cursorRef.current.classList.add('showProject2');
+    });
+
+    projectTwo.addEventListener('mouseleave', () => {
+      if (cursorRef.current == null) return;
+      cursorRef.current.classList.remove('showProject2');
+    });
   }, []);
 
   return <StyledCursor ref={cursorRef} />;

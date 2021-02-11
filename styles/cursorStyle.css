@@ -63,6 +63,22 @@
   transition: animation 350ms ease-in-out;
 }
 
+.showProject2 {
+  width: 626px;
+  height: 310px;
+  border-radius: 2px;
+
+  background-image: url('/cursorMA.PNG');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: contain;
+
+  animation: showProjectOnHover 550ms forwards;
+
+  transition: animation 350ms ease-in-out;
+}
+
 .styledCursor {
   width: 15px;
   height: 15px;

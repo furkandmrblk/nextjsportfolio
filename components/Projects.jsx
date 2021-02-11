@@ -7,12 +7,10 @@ import { maxdevice } from '../theme/mediaQueries';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
-  let project0 = useRef(null);
-  let project1 = useRef(null);
-  let project2 = useRef(null);
   let projectNumber = useRef(null);
   let projectNumber2 = useRef(null);
   let projectNumber3 = useRef(null);
+  let projectNumber4 = useRef(null);
 
   useEffect(() => {
     gsap.from(projectNumber, 2, {
@@ -39,6 +37,14 @@ export default function Projects() {
         trigger: projectNumber3,
       },
     });
+    gsap.from(projectNumber4, 2, {
+      opacity: 0,
+      x: 150,
+      ease: Power3.easeOut,
+      scrollTrigger: {
+        trigger: projectNumber4,
+      },
+    });
   });
 
   return (
@@ -47,29 +53,24 @@ export default function Projects() {
       <Wrapper>
         <ProjectNumbers ref={(el) => (projectNumber = el)}>00</ProjectNumbers>
         <IndividualWrapper id="projectzero">
-          <Project
-            id="00"
-            data-text="makimaki"
-            ref={(el) => (project0 = el)}
-            href="/makimaki"
-          >
+          <Project id="00" data-text="makimaki" href="/makimaki">
             makimaki
           </Project>
         </IndividualWrapper>
         <ProjectNumbers ref={(el) => (projectNumber2 = el)}>01</ProjectNumbers>
         <IndividualWrapper id="projectone">
-          <Project
-            data-text="freshfood"
-            ref={(el) => (project1 = el)}
-            href="/freshfood"
-          >
+          <Project data-text="freshfood" href="/freshfood">
             freshfood
           </Project>
         </IndividualWrapper>
         <ProjectNumbers ref={(el) => (projectNumber3 = el)}>02</ProjectNumbers>
-        <Project data-text="coming soon ..." ref={(el) => (project2 = el)}>
-          coming soon ...
-        </Project>
+        <IndividualWrapper id="projecttwo">
+          <Project href="/bellefair" data-text="bellefair">
+            bellefair
+          </Project>
+        </IndividualWrapper>
+        <ProjectNumbers ref={(el) => (projectNumber4 = el)}>03</ProjectNumbers>
+        <Project data-text="coming soon ...">coming soon ...</Project>
       </Wrapper>
     </ProjectsWrapper>
   );
