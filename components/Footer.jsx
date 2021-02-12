@@ -15,8 +15,20 @@ export default function Footer() {
       />
       <GitHub target="_blank" href="https://github.com/furkandmrblk" />
       <FooterCopyright>
-        © 2021 - furkandmrblk | Built with Next.js
+        © 2021 <br /> furkandmrblk | Built with Next.js
       </FooterCopyright>
+      <FooterImpressum>
+        Impressum <br />
+        Angaben gemäß § 5 TMG <br />
+        Ibrahim-Furkan Demirbilek <br />
+        Segitzdamm 22 <br />
+        10969 Berlin <br />
+        Kontakt <br />
+        E-Mail: ibrahimdmrblk@outlook.de <br />
+        <a href="/datenschutz" style={{ cursor: 'pointer', color: '#797979' }}>
+          Datenschutzerklärung
+        </a>
+      </FooterImpressum>
     </FooterWrapper>
   );
 }
@@ -24,24 +36,25 @@ export default function Footer() {
 const FooterWrapper = styled.div`
   display: grid;
   grid-template-columns: 35% 10% 10% 10% 35%;
-  grid-template-rows: 1px 55px 75px;
+  grid-template-rows: 1px 70px 210px;
   grid-template-areas:
     'line line line line line'
     '. home work about logos'
-    '. copyright copyright copyright .';
+    '. copyright . impressum .';
   align-items: center;
   justify-content: center;
 
   margin-top: 17.4375rem;
 
   @media ${maxdevice.tablet} {
-    grid-template-columns: 5% 45% 45% 5%;
-    grid-template-rows: 1px 55px 55px 55px;
+    grid-template-columns: 10% 40% 40% 10%;
+    grid-template-rows: 1px 55px 55px 55px 210px;
     grid-template-areas:
       '. line line .'
       '. home work .'
       '. about logos .'
-      '. copyright copyright .';
+      '. copyright copyright .'
+      '. impressum impressum .';
   }
   @media ${maxdevice.mobileL} {
     margin-top: 12rem;
@@ -51,7 +64,8 @@ const FooterWrapper = styled.div`
 const FooterLine = styled.div`
   position: relative;
   height: 0;
-  width: 55.6875rem;
+  width: 60.6875rem;
+  max-width: auto;
   border: 1px solid #ececec;
 
   grid-area: line;
@@ -145,10 +159,30 @@ const FooterCopyright = styled.h1`
   grid-area: copyright;
 
   justify-self: center;
-  align-self: flex-end;
+  align-self: flex-start;
 
   @media ${maxdevice.tablet} {
-    text-align: center;
+    align-self: center;
+    text-align: left;
+  }
+  @media ${maxdevice.mobileL} {
+    font-size: 0.8rem;
+  }
+`;
+
+const FooterImpressum = styled.h1`
+  font-size: 1rem;
+  font-weight: 400;
+  color: #797979;
+
+  grid-area: impressum;
+
+  justify-self: center;
+  align-self: flex-start;
+
+  @media ${maxdevice.tablet} {
+    align-self: center;
+    text-align: left;
   }
   @media ${maxdevice.mobileL} {
     font-size: 0.8rem;
